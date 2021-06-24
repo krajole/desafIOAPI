@@ -6,4 +6,4 @@
 version: 2
 updates:
   - package-ecosystem: "cargo"
-    directory: "/" # L
+    directory: "/" # Location of package manifes
