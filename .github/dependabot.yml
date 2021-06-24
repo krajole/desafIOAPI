@@ -5,4 +5,5 @@
 
 version: 2
 updates:
-  - package-ecosystem: "
+  - package-ecosystem: "cargo"
+    directory: "/" # L
