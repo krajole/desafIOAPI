@@ -6,4 +6,6 @@
 version: 2
 updates:
   - package-ecosystem: "cargo"
-    directory: "/" # Location of package manifes
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "
