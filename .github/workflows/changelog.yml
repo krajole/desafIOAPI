@@ -1,4 +1,4 @@
 name: Changelog
 
 concurrency:
-  group: ${{ githu
+  group: ${{ github.workflow }}-${{ githu
