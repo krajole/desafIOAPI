@@ -8,4 +8,7 @@ on:
   pull_request:
     branches:
       - main
-    p
+    paths:
+      - 'src/**'
+
+jo
