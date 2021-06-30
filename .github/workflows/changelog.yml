@@ -19,4 +19,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-        fet
+        fetch-depth: 0
+
+    - name: Check that CHANG
