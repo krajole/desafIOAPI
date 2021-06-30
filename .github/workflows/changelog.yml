@@ -14,4 +14,7 @@ on:
 jobs:
   changelog:
     name: CHANGELOG
-    runs-on: ubun
+    runs-on: ubuntu-latest
+
+    steps:
+    - 
