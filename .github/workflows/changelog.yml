@@ -22,4 +22,5 @@ jobs:
         fetch-depth: 0
 
     - name: Check that CHANGELOG has been updated
-    
+      run: |
+        # If this step fai
