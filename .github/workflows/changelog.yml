@@ -21,4 +21,5 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Check that CHANG
+    - name: Check that CHANGELOG has been updated
+    
