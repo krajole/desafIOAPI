@@ -24,4 +24,5 @@ jobs:
     - name: Check that CHANGELOG has been updated
       run: |
         # If this step fails, this means you haven't updated the CHANGELOG.md
-        # file with notes on yo
+        # file with notes on your contribution.
+        git diff --
