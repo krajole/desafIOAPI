@@ -23,4 +23,5 @@ jobs:
 
     - name: Check that CHANGELOG has been updated
       run: |
-        # If this step fails, this means you haven't updat
+        # If this step fails, this means you haven't updated the CHANGELOG.md
+       
