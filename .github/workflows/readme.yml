@@ -2,4 +2,8 @@ name: Readme
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: t
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    
