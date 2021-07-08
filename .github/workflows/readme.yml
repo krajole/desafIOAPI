@@ -1,4 +1,4 @@
 name: Readme
 
 concurrency:
-  group: ${{ github.w
+  group: ${{ github.workflow }}-${{ github.ref
