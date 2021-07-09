@@ -8,4 +8,5 @@ on:
   pull_request:
     branches:
       - main
-    path
+    paths:
+      - 'src/lib.rs'
