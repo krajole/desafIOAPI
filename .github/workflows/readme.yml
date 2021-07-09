@@ -11,3 +11,7 @@ on:
     paths:
       - 'src/lib.rs'
       - 'README.md'
+
+env:
+  CACHE_PREFIX: v0
+
