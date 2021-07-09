@@ -10,3 +10,4 @@ on:
       - main
     paths:
       - 'src/lib.rs'
+      - 'README.md'
