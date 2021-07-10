@@ -15,3 +15,7 @@ on:
 env:
   CACHE_PREFIX: v0
 
+jobs:
+  readme:
+    name: README
+ 
