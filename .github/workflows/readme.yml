@@ -20,4 +20,5 @@ jobs:
     name: README
     runs-on: ubuntu-latest
 
-    ste
+    steps:
+      - uses: actions/checkou
