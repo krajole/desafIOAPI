@@ -21,4 +21,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkou
+      - uses: actions/checkout@v3
+
+      - name: Inst
