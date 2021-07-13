@@ -28,4 +28,6 @@ jobs:
         with:
           toolchain: stable
           profile: minimal
-          overri
+          override: true
+
+      - n
