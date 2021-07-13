@@ -30,4 +30,5 @@ jobs:
           profile: minimal
           override: true
 
-      - n
+      - name: Find latest cargo-rdme version
+  
