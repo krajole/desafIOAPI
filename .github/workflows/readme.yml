@@ -33,4 +33,5 @@ jobs:
       - name: Find latest cargo-rdme version
         shell: bash
         run: |
-    
+          set -e
+          set
