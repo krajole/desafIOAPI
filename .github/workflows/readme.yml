@@ -34,4 +34,6 @@ jobs:
         shell: bash
         run: |
           set -e
-          set
+          set -u
+          set -o pipefail
+  
