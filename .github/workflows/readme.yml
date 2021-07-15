@@ -36,4 +36,4 @@ jobs:
           set -e
           set -u
           set -o pipefail
-  
+          CARGO_RDME_VERSION=$
