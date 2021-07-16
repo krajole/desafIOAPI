@@ -36,4 +36,4 @@ jobs:
           set -e
           set -u
           set -o pipefail
-          CARGO_RDME_VERSION=$(curl -s https://api.github.com/repos/orium/cargo-rdme/
+          CARGO_RDME_VERSION=$(curl -s https://api.github.com/repos/orium/cargo-rdme/releases/latest | jq -r '.tag
