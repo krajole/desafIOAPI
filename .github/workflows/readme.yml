@@ -42,4 +42,5 @@ jobs:
           echo "CARGO_RDME_VERSION=$CARGO_RDME_VERSION" >> $GITHUB_ENV
           echo "$CARGO_RDME_VERSION"
 
-      - name: Cac
+      - name: Cache cargo-rdme
+        uses: a
