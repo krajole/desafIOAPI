@@ -43,4 +43,5 @@ jobs:
           echo "$CARGO_RDME_VERSION"
 
       - name: Cache cargo-rdme
-        uses: a
+        uses: actions/cache@v2
+        i
