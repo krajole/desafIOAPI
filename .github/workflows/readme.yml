@@ -47,4 +47,4 @@ jobs:
         id: cache-cargo-rdme
         with:
           path: ~/.cargo/bin/cargo-rdme
-          key: ${{ env.CACHE_PREFIX }}-${
+          key: ${{ env.CACHE_PREFIX }}-${{ env.CARGO_RDME_VERSION
