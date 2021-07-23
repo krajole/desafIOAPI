@@ -45,4 +45,5 @@ jobs:
       - name: Cache cargo-rdme
         uses: actions/cache@v2
         id: cache-cargo-rdme
-     
+        with:
+          path: ~/.cargo/bin/
