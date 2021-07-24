@@ -49,4 +49,5 @@ jobs:
           path: ~/.cargo/bin/cargo-rdme
           key: ${{ env.CACHE_PREFIX }}-${{ env.CARGO_RDME_VERSION }}
 
-      - name: Install ca
+      - name: Install cargo-rdme
+        if: steps.cach
