@@ -50,4 +50,6 @@ jobs:
           key: ${{ env.CACHE_PREFIX }}-${{ env.CARGO_RDME_VERSION }}
 
       - name: Install cargo-rdme
-        if: steps.cache-cargo-rdme.outputs.cache-hit
+        if: steps.cache-cargo-rdme.outputs.cache-hit != 'true'
+        run: |
+          
