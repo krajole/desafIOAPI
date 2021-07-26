@@ -52,4 +52,6 @@ jobs:
       - name: Install cargo-rdme
         if: steps.cache-cargo-rdme.outputs.cache-hit != 'true'
         run: |
-          cargo install cargo-r
+          cargo install cargo-rdme
+
+      - name: Check README i
