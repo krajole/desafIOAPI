@@ -48,3 +48,11 @@ jobs:
       uses: actions-rs/cargo@v1
       with:
         command: publish
+
+    - name: Publish GitHub release
+      uses: softprops/action-gh-release@v1
+      with:
+        body_path: ${{ github.workspace }}-RELEASE_NOTES.md
+        prerelease: ${{ contains(env.TAG, '-rc') }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
