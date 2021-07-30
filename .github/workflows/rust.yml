@@ -78,3 +78,33 @@ jobs:
           echo "Downloading sccache from $URL"
           mkdir -p $HOME/.local/bin
           curl -L $URL | tar xz
+          mv -f $SCCACHE_FILE/sccache $HOME/.local/bin/sccache
+          chmod +x $HOME/.local/bin/sccache
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Install sccache (macos-latest)
+        if: matrix.os == 'macos-latest'
+        run: |
+          # brew update  # takes forever
+          brew install sccache
+
+      - name: Install Rust ${{ matrix.rust }}
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: ${{ matrix.rust }}
+          profile: minimal
+          override: true
+
+      - name: Cache cargo registry and sccache
+        uses: actions/cache@v2
+        continue-on-error: false
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            ${{ env.SCCACHE_DIR }}
+          key: ${{ env.CACHE_PREFIX }}-${{ runner.os }}-${{ matrix.task.name }}-${{ hashFiles('**/Cargo.toml') }}
+          restore-keys: |
+            ${{ env.CACHE_PREFIX }}-${{ runner.os }}-${{ matrix.task.name }}-
+
+      - name: Start sccache server
