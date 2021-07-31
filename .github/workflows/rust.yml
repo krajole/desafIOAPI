@@ -108,3 +108,10 @@ jobs:
             ${{ env.CACHE_PREFIX }}-${{ runner.os }}-${{ matrix.task.name }}-
 
       - name: Start sccache server
+        run: sccache --start-server
+
+      - name: ${{ matrix.task.name }}
+        run: ${{ matrix.task.run }}
+
+      - name: Stop sccache server
+        run: sccache --stop-server || true
