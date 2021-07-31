@@ -22,3 +22,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 ## [v0.5.3](https://github.com/epwalsh/rust-cached-path/releases/tag/v0.5.3) - 2022-03-07
+
+### Added
+
+- Added feature flag `rustls-tls` to make use of `rustls-tls` over `native-tls` in `reqwest`.
+
+## [v0.5.2](https://github.com/epwalsh/rust-cached-path/releases/tag/v0.5.2) - 2022-03-07
+
+## [v0.5.1](https://github.com/epwalsh/rust-cached-path/releases/tag/v0.4.5) - 2020-03-29
+
+## [v0.5.0](https://github.com/epwalsh/rust-cached-path/releases/tag/v0.4.5) - 2020-01-29
+
+### Changed
+
+- Switched to `color-eyre` for error handling in the CLI.
+- Improved full download progress bar.
+- `Some(ProgressBar::Full)` is now the default for the library.
+- Upgraded `reqwest` dependency to `0.11`.
+
+## [v0.4.5](https://github.com/epwalsh/rust-cached-path/releases/tag/v0.4.5) - 2020-09-15
+
+### Added
+
+- Added a method `CacheBuilder::progress_bar` to set the progress bar type, or to disable the progess bar entirely. The options are `ProgressBar::Light` and `ProgressBar::Full`. The default when using `cached-path` as a library is `ProgressBar::Light`, while the default from the command-line is `ProgressBar::Full`. You can also disable the progress bar from the command-line by passing the  "-q" / "--quietly" flag.
+
+## [v0.4.4](https://github.com/epwalsh/rust-cached-path/releases/tag/v0.4.4) - 2020-09-13
+
+### Added
+
+- Added a method `Cache::cached_path_with_options` and a corresponding `Options` struct.
+- Added ability to automatically extract archives through the `Cache::cached_path_with_options` method.
+- Added integration tests.
