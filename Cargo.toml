@@ -2,4 +2,5 @@
 name = "cached-path"
 version = "0.6.1"
 authors = ["epwalsh <epwalsh10@gmail.com>"]
-edition = "2
+edition = "2018"
+keywords = ["http",
