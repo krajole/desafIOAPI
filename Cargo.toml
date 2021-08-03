@@ -4,4 +4,5 @@ version = "0.6.1"
 authors = ["epwalsh <epwalsh10@gmail.com>"]
 edition = "2018"
 keywords = ["http", "caching"]
-categories = ["c
+categories = ["caching"]
+license = "Apache-2.
