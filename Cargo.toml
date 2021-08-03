@@ -5,4 +5,6 @@ authors = ["epwalsh <epwalsh10@gmail.com>"]
 edition = "2018"
 keywords = ["http", "caching"]
 categories = ["caching"]
-license = "Apache-2.
+license = "Apache-2.0"
+readme = "README.md"
+repo
