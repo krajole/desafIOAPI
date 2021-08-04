@@ -7,4 +7,4 @@ keywords = ["http", "caching"]
 categories = ["caching"]
 license = "Apache-2.0"
 readme = "README.md"
-repo
+repository = "https://github.com/epw
