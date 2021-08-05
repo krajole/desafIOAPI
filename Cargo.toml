@@ -9,4 +9,7 @@ license = "Apache-2.0"
 readme = "README.md"
 repository = "https://github.com/epwalsh/rust-cached-path"
 homepage = "https://github.com/epwalsh/rust-cached-path"
-description = "Download and cache 
+description = "Download and cache HTTP resources."
+
+[lib]
+name = "cach
