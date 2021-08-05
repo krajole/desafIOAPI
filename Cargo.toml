@@ -12,4 +12,7 @@ homepage = "https://github.com/epwalsh/rust-cached-path"
 description = "Download and cache HTTP resources."
 
 [lib]
-name = "cach
+name = "cached_path"
+path = "src/lib.rs"
+
+[[
