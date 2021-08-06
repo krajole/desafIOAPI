@@ -15,4 +15,6 @@ description = "Download and cache HTTP resources."
 name = "cached_path"
 path = "src/lib.rs"
 
-[[
+[[bin]]
+name = "cached-path"
+pa
