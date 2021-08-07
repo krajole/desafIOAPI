@@ -17,4 +17,5 @@ path = "src/lib.rs"
 
 [[bin]]
 name = "cached-path"
-pa
+path = "src/main.rs"
+doc = 
