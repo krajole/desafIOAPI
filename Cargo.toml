@@ -18,4 +18,5 @@ path = "src/lib.rs"
 [[bin]]
 name = "cached-path"
 path = "src/main.rs"
-doc = 
+doc = false
+required-features = ["build
