@@ -38,4 +38,5 @@ flate2 = "1.0"
 tar = "0.4"
 zip = "0.6"
 indicatif = "0.16"
-env_logger = { version
+env_logger = { version = "0.10", optional = true }
+str
