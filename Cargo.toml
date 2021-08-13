@@ -37,4 +37,5 @@ thiserror = "1.0"
 flate2 = "1.0"
 tar = "0.4"
 zip = "0.6"
-indicatif = "0.
+indicatif = "0.16"
+env_logger = { version
