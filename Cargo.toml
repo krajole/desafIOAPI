@@ -40,4 +40,4 @@ zip = "0.6"
 indicatif = "0.16"
 env_logger = { version = "0.10", optional = true }
 structopt = { version = "0.3", optional = true }
-col
+color-eyre = { version = "0.6", optio
