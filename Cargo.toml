@@ -45,4 +45,5 @@ color-eyre = { version = "0.6", optional = true }
 [features]
 default = ["default-tls"]
 build-binary = ["env_logger", "structopt", "color-eyre"]
-rustls-tls = ["reqwest/rus
+rustls-tls = ["reqwest/rustls-tls"]
+default-tls = 
