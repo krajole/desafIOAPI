@@ -29,3 +29,8 @@ all-checks : lint test doc
 
 .PHONY : publish
 publish :
+	cargo publish
+
+.PHONY : readme
+readme :
+	cargo rdme --force
