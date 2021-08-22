@@ -49,3 +49,35 @@ assert!(path.is_file());
 # From the command line:
 $ cached-path https://github.com/epwalsh/rust-cached-path/blob/main/README.md
 /tmp/cache/055968a99316f3a42e7bcff61d3f590227dd7b03d17e09c41282def7c622ba0f.efa33e7f611ef2d163fea874ce614bb6fa5ab2a9d39d5047425e39ebe59fe782
+```
+
+For local files, the path returned is just the original path supplied:
+
+```rust
+use cached_path::cached_path;
+
+let path = cached_path("README.md").unwrap();
+assert_eq!(path.to_str().unwrap(), "README.md");
+```
+
+```bash
+# From the command line:
+$ cached-path README.md
+README.md
+```
+
+For resources that are archives, like `*.tar.gz` files, `cached-path` can also
+automatically extract the files:
+
+```rust
+use cached_path::{cached_path_with_options, Options};
+
+let path = cached_path_with_options(
+    "https://raw.githubusercontent.com/epwalsh/rust-cached-path/main/test_fixtures/utf-8_sample/archives/utf-8.tar.gz",
+    &Options::default().extract(),
+).unwrap();
+assert!(path.is_dir());
+```
+
+```bash
+# From the command line:
