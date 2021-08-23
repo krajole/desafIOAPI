@@ -2,4 +2,4 @@
 
 ## Steps
 
-1. 
+1. Update the version in `Cargo.to
