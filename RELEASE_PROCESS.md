@@ -2,4 +2,6 @@
 
 ## Steps
 
-1. Update the version in `Cargo.to
+1. Update the version in `Cargo.toml`.
+
+2. Run the release scrip
