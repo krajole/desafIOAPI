@@ -81,3 +81,30 @@ assert!(path.is_dir());
 
 ```bash
 # From the command line:
+$ cached-path --extract https://raw.githubusercontent.com/epwalsh/rust-cached-path/main/test_fixtures/utf-8_sample/archives/utf-8.tar.gz
+README.md
+```
+
+It's also easy to customize the cache location, the HTTP client, and other options
+using a [`CacheBuilder`](https://docs.rs/cached-path/latest/cached_path/cache/struct.CacheBuilder.html) to construct a custom
+[`Cache`](https://docs.rs/cached-path/latest/cached_path/cache/struct.Cache.html) object. This is the recommended thing
+to do if your application makes multiple calls to `cached_path`, since it avoids the overhead
+of creating a new HTTP client on each call:
+
+```rust
+use cached_path::Cache;
+
+let cache = Cache::builder()
+    .dir(std::env::temp_dir().join("my-cache/"))
+    .connect_timeout(std::time::Duration::from_secs(3))
+    .build().unwrap();
+let path = cache.cached_path("README.md").unwrap();
+```
+
+```bash
+# From the command line:
+$ cached-path --dir /tmp/my-cache/ --connect-timeout 3 README.md
+README.md
+```
+
+<!-- cargo-rdme end -->
