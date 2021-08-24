@@ -4,4 +4,7 @@
 
 1. Update the version in `Cargo.toml`.
 
-2. Run the release scrip
+2. Run the release script:
+
+    ```bash
+    ./sc
