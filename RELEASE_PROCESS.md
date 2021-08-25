@@ -10,4 +10,4 @@
     ./scripts/release.sh
     ```
 
-    T
+    This will automatically updat
