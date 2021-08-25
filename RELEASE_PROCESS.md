@@ -7,4 +7,7 @@
 2. Run the release script:
 
     ```bash
-    ./sc
+    ./scripts/release.sh
+    ```
+
+    T
