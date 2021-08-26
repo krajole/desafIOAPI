@@ -10,4 +10,4 @@
     ./scripts/release.sh
     ```
 
-    This will automatically updat
+    This will automatically update the CHANGELOG, commit the chan
