@@ -10,4 +10,4 @@
     ./scripts/release.sh
     ```
 
-    This will automatically update the CHANGELOG, commit the changes to the CHANGELOG and `Cargo.toml` (a
+    This will automatically update the CHANGELOG, commit the changes to the CHANGELOG and `Cargo.toml` (and any other files you might hav
