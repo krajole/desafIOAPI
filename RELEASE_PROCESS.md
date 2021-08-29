@@ -11,4 +11,4 @@
     ```
 
     This will automatically update the CHANGELOG, commit the changes to the CHANGELOG and `Cargo.toml` (and any other files you might have changed),
-    and then create a new tag in git
+    and then create a new tag in git which will trigger a workflow on 
