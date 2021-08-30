@@ -15,4 +15,4 @@
 
 ## Fixing a failed release
 
-If for some reason the Git
+If for some reason the GitHub Actions release workflow failed wi
