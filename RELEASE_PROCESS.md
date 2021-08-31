@@ -15,4 +15,4 @@
 
 ## Fixing a failed release
 
-If for some reason the GitHub Actions release workflow failed with an error that needs to be fixed,
+If for some reason the GitHub Actions release workflow failed with an error that needs to be fixed, you'll have to delete both the tag 
