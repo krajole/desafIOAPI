@@ -9,4 +9,6 @@ def main():
     changelog = Path("CHANGELOG.md")
 
     with changelog.open() as f:
-        
+        lines = f.readlines()
+
+    insert_ind
