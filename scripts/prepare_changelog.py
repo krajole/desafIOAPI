@@ -8,4 +8,5 @@ TAG = os.environ["TAG"]
 def main():
     changelog = Path("CHANGELOG.md")
 
-    with cha
+    with changelog.open() as f:
+        
