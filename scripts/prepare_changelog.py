@@ -12,4 +12,5 @@ def main():
         lines = f.readlines()
 
     insert_index: int
-    for i in range(len(lines
+    for i in range(len(lines)):
+        line = lines[i]
