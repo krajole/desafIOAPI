@@ -11,4 +11,5 @@ def main():
     with changelog.open() as f:
         lines = f.readlines()
 
-    insert_ind
+    insert_index: int
+    for i in range(len(lines
