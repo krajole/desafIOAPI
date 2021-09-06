@@ -14,3 +14,4 @@ def main():
     insert_index: int
     for i in range(len(lines)):
         line = lines[i]
+        if line.startswith("##
