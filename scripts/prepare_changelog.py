@@ -15,4 +15,5 @@ def main():
     for i in range(len(lines)):
         line = lines[i]
         if line.startswith("## Unreleased"):
-            
+            insert_index = i + 1
+   
