@@ -17,4 +17,5 @@ def main():
         if line.startswith("## Unreleased"):
             insert_index = i + 1
         elif line.startswith(f"## [{TAG}]"):
-            print("CHANGELOG already up-
+            print("CHANGELOG already up-to-date")
+     
