@@ -19,4 +19,5 @@ def main():
         elif line.startswith(f"## [{TAG}]"):
             print("CHANGELOG already up-to-date")
             return
-        
+        elif line.startswith("## [v"):
+            br
