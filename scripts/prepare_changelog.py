@@ -18,4 +18,5 @@ def main():
             insert_index = i + 1
         elif line.startswith(f"## [{TAG}]"):
             print("CHANGELOG already up-to-date")
-     
+            return
+        
