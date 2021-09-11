@@ -22,4 +22,4 @@ def main():
         elif line.startswith("## [v"):
             break
     else:
-        raise R
+        raise RuntimeError("Couldn't find 'Unrel
