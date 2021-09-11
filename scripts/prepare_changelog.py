@@ -20,4 +20,6 @@ def main():
             print("CHANGELOG already up-to-date")
             return
         elif line.startswith("## [v"):
-            br
+            break
+    else:
+        raise R
