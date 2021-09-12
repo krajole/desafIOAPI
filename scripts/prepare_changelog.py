@@ -22,4 +22,6 @@ def main():
         elif line.startswith("## [v"):
             break
     else:
-        raise RuntimeError("Couldn't find 'Unrel
+        raise RuntimeError("Couldn't find 'Unreleased' section")
+
+    lines.inser
