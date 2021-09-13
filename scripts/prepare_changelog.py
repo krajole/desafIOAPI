@@ -24,4 +24,5 @@ def main():
     else:
         raise RuntimeError("Couldn't find 'Unreleased' section")
 
-    lines.inser
+    lines.insert(insert_index, "\n")
+   
