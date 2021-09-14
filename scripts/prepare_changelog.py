@@ -27,4 +27,4 @@ def main():
     lines.insert(insert_index, "\n")
     lines.insert(
         insert_index + 1,
-        f"## [{TAG}](https://g
+        f"## [{TAG}](https://github.com/epwalsh/rust-cached-path/
