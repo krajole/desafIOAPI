@@ -28,4 +28,4 @@ def main():
     lines.insert(
         insert_index + 1,
         f"## [{TAG}](https://github.com/epwalsh/rust-cached-path/releases/tag/{TAG}) - "
-  
+        f"{datetime.now().
