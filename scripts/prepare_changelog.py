@@ -31,4 +31,5 @@ def main():
         f"{datetime.now().strftime('%Y-%m-%d')}\n",
     )
 
-    with changelog.open("
+    with changelog.open("w") as f:
+        f.writelin
