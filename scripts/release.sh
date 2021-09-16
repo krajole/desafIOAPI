@@ -2,4 +2,4 @@
 
 set -e
 
-TAG=$(grep '^versio
+TAG=$(grep '^version =' Cargo.toml | head -n 1 | sed -E
