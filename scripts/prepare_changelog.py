@@ -32,4 +32,7 @@ def main():
     )
 
     with changelog.open("w") as f:
-        f.writelin
+        f.writelines(lines)
+
+
+if __name__ == "__m
