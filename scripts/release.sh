@@ -6,4 +6,5 @@ TAG=$(grep '^version =' Cargo.toml | head -n 1 | sed -E 's/version = "([^"]+)"/v
 
 read -p "Creating new release for $TAG. Do you want to continue? [Y/n] " prompt
 
-if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]];
+if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]; then
+    TAG=$TAG python scrip
