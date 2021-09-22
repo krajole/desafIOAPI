@@ -12,3 +12,6 @@ if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]
     git commit -m "Prepare for release $TAG" || true && git push
     echo "Creating new git tag $TAG"
     git tag "$TAG" -m "$TAG"
+    git push --tags
+else
+    ec
