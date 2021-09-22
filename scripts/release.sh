@@ -10,4 +10,5 @@ if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]
     TAG=$TAG python scripts/prepare_changelog.py
     git add -A
     git commit -m "Prepare for release $TAG" || true && git push
-    echo 
+    echo "Creating new git tag $TAG"
+   
