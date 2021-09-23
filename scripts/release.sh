@@ -14,4 +14,5 @@ if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]
     git tag "$TAG" -m "$TAG"
     git push --tags
 else
-    ec
+    echo "Cancelled"
+    ex
