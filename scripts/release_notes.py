@@ -1,4 +1,8 @@
 # encoding: utf-8
 
 """
-Prepares markdown release notes for GitHub releases
+Prepares markdown release notes for GitHub releases.
+"""
+
+import os
+from typi
