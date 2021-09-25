@@ -5,4 +5,5 @@ Prepares markdown release notes for GitHub releases.
 """
 
 import os
-from typi
+from typing import List, Optional
+
