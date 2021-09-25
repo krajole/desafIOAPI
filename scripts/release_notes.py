@@ -1,4 +1,4 @@
 # encoding: utf-8
 
 """
-Prepares markdown rel
+Prepares markdown release notes for GitHub releases
