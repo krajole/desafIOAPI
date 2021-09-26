@@ -8,3 +8,5 @@ import os
 from typing import List, Optional
 
 import packaging.version
+
+TAG = os.environ["TAG"
