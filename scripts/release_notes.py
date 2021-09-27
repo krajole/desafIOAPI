@@ -12,4 +12,5 @@ import packaging.version
 TAG = os.environ["TAG"]
 
 ADDED_HEADER = "### Added 🎉"
-CHANGED_HEADER = "### Chang
+CHANGED_HEADER = "### Changed ⚠️"
+FIXED_HEADER 
