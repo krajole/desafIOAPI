@@ -14,4 +14,7 @@ TAG = os.environ["TAG"]
 ADDED_HEADER = "### Added 🎉"
 CHANGED_HEADER = "### Changed ⚠️"
 FIXED_HEADER = "### Fixed ✅"
-REMOVED_HEADER = "###
+REMOVED_HEADER = "### Removed 👋"
+
+
+def get_change
