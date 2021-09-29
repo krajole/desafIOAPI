@@ -17,4 +17,5 @@ FIXED_HEADER = "### Fixed ✅"
 REMOVED_HEADER = "### Removed 👋"
 
 
-def get_change
+def get_change_log_notes() -> str:
+    in_c
