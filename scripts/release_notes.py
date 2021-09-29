@@ -18,4 +18,5 @@ REMOVED_HEADER = "### Removed 👋"
 
 
 def get_change_log_notes() -> str:
-    in_c
+    in_current_section = False
+   
