@@ -19,4 +19,5 @@ REMOVED_HEADER = "### Removed 👋"
 
 def get_change_log_notes() -> str:
     in_current_section = False
-    current_section_notes: List[s
+    current_section_notes: List[str] = []
+    with open(
