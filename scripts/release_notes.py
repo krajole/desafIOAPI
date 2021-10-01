@@ -21,4 +21,5 @@ def get_change_log_notes() -> str:
     in_current_section = False
     current_section_notes: List[str] = []
     with open("CHANGELOG.md") as changelog:
-        
+        for line in changelog:
+      
