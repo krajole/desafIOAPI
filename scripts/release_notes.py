@@ -22,4 +22,5 @@ def get_change_log_notes() -> str:
     current_section_notes: List[str] = []
     with open("CHANGELOG.md") as changelog:
         for line in changelog:
-      
+            if line.startswith("## "):
+    
