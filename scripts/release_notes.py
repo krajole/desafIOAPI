@@ -24,4 +24,5 @@ def get_change_log_notes() -> str:
         for line in changelog:
             if line.startswith("## "):
                 if line.startswith("## Unreleased"):
-       
+                    continue
+     
