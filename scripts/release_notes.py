@@ -25,4 +25,4 @@ def get_change_log_notes() -> str:
             if line.startswith("## "):
                 if line.startswith("## Unreleased"):
                     continue
-     
+                if line.startswi
