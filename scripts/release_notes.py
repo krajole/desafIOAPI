@@ -26,4 +26,4 @@ def get_change_log_notes() -> str:
                 if line.startswith("## Unreleased"):
                     continue
                 if line.startswith(f"## [{TAG}]"):
-          
+                    in_current_s
