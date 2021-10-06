@@ -30,4 +30,5 @@ def get_change_log_notes() -> str:
                     continue
                 break
             if in_current_section:
-                if line.sta
+                if line.startswith("### Added"):
+            
