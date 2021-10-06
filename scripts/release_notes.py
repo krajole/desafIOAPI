@@ -29,4 +29,5 @@ def get_change_log_notes() -> str:
                     in_current_section = True
                     continue
                 break
-            if in_current_section
+            if in_current_section:
+                if line.sta
