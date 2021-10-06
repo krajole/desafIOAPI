@@ -28,3 +28,5 @@ def get_change_log_notes() -> str:
                 if line.startswith(f"## [{TAG}]"):
                     in_current_section = True
                     continue
+                break
+  
