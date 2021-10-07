@@ -31,4 +31,4 @@ def get_change_log_notes() -> str:
                 break
             if in_current_section:
                 if line.startswith("### Added"):
-            
+                    line = ADDED_HEAD
