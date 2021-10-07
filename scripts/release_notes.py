@@ -32,4 +32,4 @@ def get_change_log_notes() -> str:
             if in_current_section:
                 if line.startswith("### Added"):
                     line = ADDED_HEADER + "\n"
-                el
+                elif line.startswith
