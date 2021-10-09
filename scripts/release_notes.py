@@ -35,3 +35,4 @@ def get_change_log_notes() -> str:
                 elif line.startswith("### Changed"):
                     line = CHANGED_HEADER + "\n"
                 elif line.startswith("### Fixed"):
+                    line = FI
