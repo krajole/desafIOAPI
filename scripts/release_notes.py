@@ -36,4 +36,4 @@ def get_change_log_notes() -> str:
                     line = CHANGED_HEADER + "\n"
                 elif line.startswith("### Fixed"):
                     line = FIXED_HEADER + "\n"
-           
+                elif line.startswith("### R
