@@ -40,4 +40,4 @@ def get_change_log_notes() -> str:
                     line = REMOVED_HEADER + "\n"
                 current_section_notes.append(line)
     assert current_section_notes
-    return "## What's new
+    return "## What's new\n\n" + "".join(current_sectio
