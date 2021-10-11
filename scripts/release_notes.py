@@ -39,4 +39,4 @@ def get_change_log_notes() -> str:
                 elif line.startswith("### Removed"):
                     line = REMOVED_HEADER + "\n"
                 current_section_notes.append(line)
- 
+    assert current_section
