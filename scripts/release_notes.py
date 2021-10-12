@@ -43,4 +43,5 @@ def get_change_log_notes() -> str:
     return "## What's new\n\n" + "".join(current_section_notes).strip() + "\n"
 
 
-def
+def get_commit_history() -> str:
+ 
