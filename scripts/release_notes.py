@@ -46,4 +46,4 @@ def get_change_log_notes() -> str:
 def get_commit_history() -> str:
     new_version = packaging.version.parse(TAG)
 
-    # G
+    # Get all tags sort
