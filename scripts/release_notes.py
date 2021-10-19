@@ -50,4 +50,5 @@ def get_commit_history() -> str:
     all_tags = os.popen("git tag -l --sort=-version:refname 'v*'").read().split("\n")
 
     # Out of `all_tags`, find the latest previous version so that we can collect all
-    # commits between that version and the new version we're
+    # commits between that version and the new version we're about to publish.
+    # Note
