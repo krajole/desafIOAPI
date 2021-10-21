@@ -52,4 +52,5 @@ def get_commit_history() -> str:
     # Out of `all_tags`, find the latest previous version so that we can collect all
     # commits between that version and the new version we're about to publish.
     # Note that we ignore pre-releases unless the new version is also a pre-release.
-    last_tag: Optional[str] = 
+    last_tag: Optional[str] = None
+    for tag in all_tag
