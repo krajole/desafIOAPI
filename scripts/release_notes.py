@@ -54,4 +54,5 @@ def get_commit_history() -> str:
     # Note that we ignore pre-releases unless the new version is also a pre-release.
     last_tag: Optional[str] = None
     for tag in all_tags:
-        if not tag.strip():  # could b
+        if not tag.strip():  # could be blank line
+            cont
