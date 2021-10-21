@@ -53,4 +53,5 @@ def get_commit_history() -> str:
     # commits between that version and the new version we're about to publish.
     # Note that we ignore pre-releases unless the new version is also a pre-release.
     last_tag: Optional[str] = None
-    for tag in all_tag
+    for tag in all_tags:
+        if not tag.strip():  # could b
