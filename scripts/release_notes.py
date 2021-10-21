@@ -55,4 +55,5 @@ def get_commit_history() -> str:
     last_tag: Optional[str] = None
     for tag in all_tags:
         if not tag.strip():  # could be blank line
-            cont
+            continue
+        version =
