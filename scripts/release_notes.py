@@ -56,4 +56,4 @@ def get_commit_history() -> str:
     for tag in all_tags:
         if not tag.strip():  # could be blank line
             continue
-        version =
+        version = packaging.version.parse(tag
