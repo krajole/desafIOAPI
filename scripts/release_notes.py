@@ -63,4 +63,5 @@ def get_commit_history() -> str:
             last_tag = tag
             break
     if last_tag is not None:
-        c
+        commits = os.popen(
+        
