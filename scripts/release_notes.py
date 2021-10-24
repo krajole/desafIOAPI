@@ -59,4 +59,5 @@ def get_commit_history() -> str:
         version = packaging.version.parse(tag)
         if new_version.pre is None and version.pre is not None:
             continue
-     
+        if version < new_version:
+    
