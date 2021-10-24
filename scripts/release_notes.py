@@ -60,4 +60,6 @@ def get_commit_history() -> str:
         if new_version.pre is None and version.pre is not None:
             continue
         if version < new_version:
-    
+            last_tag = tag
+            break
+  
