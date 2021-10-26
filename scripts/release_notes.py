@@ -68,4 +68,8 @@ def get_commit_history() -> str:
         ).read()
     else:
         commits = os.popen("git log --oneline --first-parent").read()
-    return "## Commits\n\n" 
+    return "## Commits\n\n" + commits
+
+
+def main():
+    p
