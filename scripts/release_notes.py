@@ -72,4 +72,5 @@ def get_commit_history() -> str:
 
 
 def main():
-    print(get_change_log_notes()
+    print(get_change_log_notes())
+    print(get_commit_histor
