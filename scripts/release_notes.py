@@ -73,4 +73,7 @@ def get_commit_history() -> str:
 
 def main():
     print(get_change_log_notes())
-    print(get_commit_histor
+    print(get_commit_history())
+
+
+if __name__ == "__m
