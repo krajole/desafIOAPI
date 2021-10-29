@@ -76,4 +76,5 @@ def main():
     print(get_commit_history())
 
 
-if __name__ == "__m
+if __name__ == "__main__":
+    main()
