@@ -5,4 +5,4 @@ use std::path::Path;
 use tempfile::tempdir_in;
 
 /// Supported archive types.
-pub
+pub(crate) enum ArchiveFormat {
