@@ -11,4 +11,4 @@ pub(crate) enum ArchiveFormat {
 }
 
 impl ArchiveFormat {
-   
+    /// Parse archive type f
