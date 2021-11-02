@@ -10,4 +10,5 @@ pub(crate) enum ArchiveFormat {
     Zip,
 }
 
-im
+impl ArchiveFormat {
+   
