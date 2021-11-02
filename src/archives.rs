@@ -6,3 +6,8 @@ use tempfile::tempdir_in;
 
 /// Supported archive types.
 pub(crate) enum ArchiveFormat {
+    TarGz,
+    Zip,
+}
+
+im
