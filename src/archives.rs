@@ -12,3 +12,4 @@ pub(crate) enum ArchiveFormat {
 
 impl ArchiveFormat {
     /// Parse archive type from resource extension.
+    pub(crate) fn parse_fro
