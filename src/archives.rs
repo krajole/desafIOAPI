@@ -14,4 +14,5 @@ impl ArchiveFormat {
     /// Parse archive type from resource extension.
     pub(crate) fn parse_from_extension(resource: &str) -> Result<Self, Error> {
         if resource.ends_with(".tar.gz") {
-            
+            Ok(Self::TarGz)
+        } el
