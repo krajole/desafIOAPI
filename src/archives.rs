@@ -15,4 +15,5 @@ impl ArchiveFormat {
     pub(crate) fn parse_from_extension(resource: &str) -> Result<Self, Error> {
         if resource.ends_with(".tar.gz") {
             Ok(Self::TarGz)
-        } else if resource.ends_with(".zip
+        } else if resource.ends_with(".zip") {
+            Ok(
