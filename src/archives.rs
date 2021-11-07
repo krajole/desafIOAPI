@@ -18,4 +18,4 @@ impl ArchiveFormat {
         } else if resource.ends_with(".zip") {
             Ok(Self::Zip)
         } else {
-            Err(Error::
+            Err(Error::ExtractionError("unsupported 
