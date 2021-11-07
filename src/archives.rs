@@ -16,4 +16,5 @@ impl ArchiveFormat {
         if resource.ends_with(".tar.gz") {
             Ok(Self::TarGz)
         } else if resource.ends_with(".zip") {
-            Ok(
+            Ok(Self::Zip)
+        } else 
