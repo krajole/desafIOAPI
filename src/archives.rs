@@ -20,3 +20,7 @@ impl ArchiveFormat {
         } else {
             Err(Error::ExtractionError("unsupported archive format".into()))
         }
+    }
+}
+
+pub(crate) fn 
