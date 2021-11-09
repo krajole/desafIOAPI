@@ -23,4 +23,4 @@ impl ArchiveFormat {
     }
 }
 
-pub(crate) fn 
+pub(crate) fn extract_archive<P: AsRef<P
