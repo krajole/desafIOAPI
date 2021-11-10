@@ -25,4 +25,5 @@ impl ArchiveFormat {
 
 pub(crate) fn extract_archive<P: AsRef<Path>>(
     path: P,
-    targe
+    target: P,
+    format: &ArchiveForma
