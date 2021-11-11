@@ -28,4 +28,5 @@ pub(crate) fn extract_archive<P: AsRef<Path>>(
     target: P,
     format: &ArchiveFormat,
 ) -> Result<(), Error> {
-    // We'll first extract to a temp directory in the same parent as t
+    // We'll first extract to a temp directory in the same parent as the target directory.
+  
