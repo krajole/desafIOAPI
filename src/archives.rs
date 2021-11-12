@@ -30,3 +30,4 @@ pub(crate) fn extract_archive<P: AsRef<Path>>(
 ) -> Result<(), Error> {
     // We'll first extract to a temp directory in the same parent as the target directory.
     let target_parent_dir = target.as_ref().parent().unwrap();
+    let temp_target = tem
