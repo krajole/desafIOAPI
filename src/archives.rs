@@ -32,3 +32,5 @@ pub(crate) fn extract_archive<P: AsRef<Path>>(
     let target_parent_dir = target.as_ref().parent().unwrap();
     let temp_target = tempdir_in(target_parent_dir)?;
 
+    match format {
+        Arc
