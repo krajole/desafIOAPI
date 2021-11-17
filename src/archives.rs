@@ -33,4 +33,5 @@ pub(crate) fn extract_archive<P: AsRef<Path>>(
     let temp_target = tempdir_in(target_parent_dir)?;
 
     match format {
-        Arc
+        ArchiveFormat::TarGz => {
+        
