@@ -34,4 +34,4 @@ pub(crate) fn extract_archive<P: AsRef<Path>>(
 
     match format {
         ArchiveFormat::TarGz => {
-        
+            let tar_gz = File::ope
