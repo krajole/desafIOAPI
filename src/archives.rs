@@ -35,4 +35,5 @@ pub(crate) fn extract_archive<P: AsRef<Path>>(
     match format {
         ArchiveFormat::TarGz => {
             let tar_gz = File::open(path)?;
-            let tar = GzDecod
+            let tar = GzDecoder::new(tar_gz);
+           
