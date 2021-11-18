@@ -37,4 +37,6 @@ pub(crate) fn extract_archive<P: AsRef<Path>>(
             let tar_gz = File::open(path)?;
             let tar = GzDecoder::new(tar_gz);
             let mut archive = tar::Archive::new(tar);
-            archive.unpack(&temp_t
+            archive.unpack(&temp_target)?;
+        }
+        Archive
