@@ -39,4 +39,5 @@ pub(crate) fn extract_archive<P: AsRef<Path>>(
             let mut archive = tar::Archive::new(tar);
             archive.unpack(&temp_target)?;
         }
-        Archive
+        ArchiveFormat::Zip => {
+            let fi
