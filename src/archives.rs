@@ -41,4 +41,5 @@ pub(crate) fn extract_archive<P: AsRef<Path>>(
         }
         ArchiveFormat::Zip => {
             let file = File::open(path)?;
-            le
+            let mut archive =
+              
