@@ -40,4 +40,5 @@ pub(crate) fn extract_archive<P: AsRef<Path>>(
             archive.unpack(&temp_target)?;
         }
         ArchiveFormat::Zip => {
-            let fi
+            let file = File::open(path)?;
+            le
