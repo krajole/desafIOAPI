@@ -42,4 +42,5 @@ pub(crate) fn extract_archive<P: AsRef<Path>>(
         ArchiveFormat::Zip => {
             let file = File::open(path)?;
             let mut archive =
-                zip::ZipArchive::new(file).map_err(|e| Error::Extractio
+                zip::ZipArchive::new(file).map_err(|e| Error::ExtractionError(e.to_string()))?;
+       
