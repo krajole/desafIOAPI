@@ -43,4 +43,5 @@ pub(crate) fn extract_archive<P: AsRef<Path>>(
             let file = File::open(path)?;
             let mut archive =
                 zip::ZipArchive::new(file).map_err(|e| Error::ExtractionError(e.to_string()))?;
-       
+            archive
+             
