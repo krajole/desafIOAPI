@@ -45,4 +45,4 @@ pub(crate) fn extract_archive<P: AsRef<Path>>(
                 zip::ZipArchive::new(file).map_err(|e| Error::ExtractionError(e.to_string()))?;
             archive
                 .extract(temp_target.path())
-                .map_err(|e| Error::Extractio
+                .map_err(|e| Error::ExtractionError(e.to_string()))?;
