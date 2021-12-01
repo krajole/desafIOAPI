@@ -49,4 +49,4 @@ pub(crate) fn extract_archive<P: AsRef<Path>>(
         }
     };
 
-    // Now rename 
+    // Now rename the temp directory to 
