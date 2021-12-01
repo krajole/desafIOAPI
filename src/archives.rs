@@ -46,3 +46,7 @@ pub(crate) fn extract_archive<P: AsRef<Path>>(
             archive
                 .extract(temp_target.path())
                 .map_err(|e| Error::ExtractionError(e.to_string()))?;
+        }
+    };
+
+    // Now rename 
