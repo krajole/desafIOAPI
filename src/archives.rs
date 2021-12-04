@@ -50,4 +50,7 @@ pub(crate) fn extract_archive<P: AsRef<Path>>(
     };
 
     // Now rename the temp directory to the final target directory.
-    fs::rename(temp_targ
+    fs::rename(temp_target, target)?;
+
+    Ok(())
+}
