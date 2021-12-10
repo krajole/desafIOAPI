@@ -62,3 +62,32 @@ impl CacheBuilder {
         self.config.dir = Some(dir);
         self
     }
+
+    /// Set the `ClientBuilder`.
+    pub fn client_builder(mut self, client_builder: ClientBuilder) -> CacheBuilder {
+        self.config.client_builder = client_builder;
+        self
+    }
+
+    /// Enable a request timeout.
+    pub fn timeout(mut self, timeout: Duration) -> CacheBuilder {
+        self.config.client_builder = self.config.client_builder.timeout(timeout);
+        self
+    }
+
+    /// Enable a timeout for the connect phase of each HTTP request.
+    pub fn connect_timeout(mut self, timeout: Duration) -> CacheBuilder {
+        self.config.client_builder = self.config.client_builder.connect_timeout(timeout);
+        self
+    }
+
+    /// Set maximum number of retries for HTTP requests.
+    pub fn max_retries(mut self, max_retries: u32) -> CacheBuilder {
+        self.config.max_retries = max_retries;
+        self
+    }
+
+    /// Set the maximum backoff delay in milliseconds for retrying HTTP requests.
+    pub fn max_backoff(mut self, max_backoff: u32) -> CacheBuilder {
+        self.config.max_backoff = max_backoff;
+        self
