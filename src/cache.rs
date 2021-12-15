@@ -91,3 +91,22 @@ impl CacheBuilder {
     pub fn max_backoff(mut self, max_backoff: u32) -> CacheBuilder {
         self.config.max_backoff = max_backoff;
         self
+    }
+
+    /// Set the default freshness lifetime, in seconds. The default is None, meaning
+    /// the ETAG for an external resource will always be checked for a fresher value.
+    pub fn freshness_lifetime(mut self, freshness_lifetime: u64) -> CacheBuilder {
+        self.config.freshness_lifetime = Some(freshness_lifetime);
+        self
+    }
+
+    /// Only use offline functionality.
+    ///
+    /// If set to `true`, when the cached path of an HTTP resource is requested,
+    /// the latest cached version is returned without checking for freshness.
+    /// But if no cached versions exist, a
+    /// [`NoCachedVersions`](enum.Error.html#variant.NoCachedVersions) error is returned.
+    pub fn offline(mut self, offline: bool) -> CacheBuilder {
+        self.config.offline = offline;
+        self
+    }
