@@ -161,3 +161,34 @@ impl Options {
     pub fn new(subdir: Option<&str>, extract: bool) -> Self {
         Self {
             subdir: subdir.map(String::from),
+            extract,
+        }
+    }
+
+    /// The the cache subdirectory to use.
+    pub fn subdir(mut self, subdir: &str) -> Self {
+        self.subdir = Some(subdir.into());
+        self
+    }
+
+    /// Treat the resource as an archive and try to extract it.
+    pub fn extract(mut self) -> Self {
+        self.extract = true;
+        self
+    }
+}
+
+/// Fetches and manages resources in a local cache directory.
+#[derive(Debug, Clone)]
+pub struct Cache {
+    /// The root directory of the cache.
+    pub dir: PathBuf,
+    /// The maximum number of times to retry downloading a remote resource.
+    max_retries: u32,
+    /// The maximum amount of time (in milliseconds) to wait before retrying a download.
+    max_backoff: u32,
+    /// An optional freshness lifetime (in seconds).
+    ///
+    /// If set, resources that were cached within the past `freshness_lifetime` seconds
+    /// will always be regarded as fresh, and so the ETag of the corresponding remote
+    /// resource won't be checked.
