@@ -110,3 +110,31 @@ impl CacheBuilder {
         self.config.offline = offline;
         self
     }
+
+    /// Set the type of progress bar to use.
+    ///
+    /// The default is `Some(ProgressBar::Full)`.
+    pub fn progress_bar(mut self, progress_bar: Option<ProgressBar>) -> CacheBuilder {
+        self.config.progress_bar = progress_bar;
+        self
+    }
+
+    /// Build the `Cache` object.
+    pub fn build(self) -> Result<Cache, Error> {
+        let dir = self.config.dir.unwrap_or_else(|| {
+            if let Some(dir_str) = env::var_os("RUST_CACHED_PATH_ROOT") {
+                PathBuf::from(dir_str)
+            } else {
+                env::temp_dir().join("cache/")
+            }
+        });
+        let http_client = self.config.client_builder.build()?;
+        fs::create_dir_all(&dir)?;
+        Ok(Cache {
+            dir,
+            http_client,
+            max_retries: self.config.max_retries,
+            max_backoff: self.config.max_backoff,
+            freshness_lifetime: self.config.freshness_lifetime,
+            offline: self.config.offline,
+            progress_bar: self.config.progress_bar,
