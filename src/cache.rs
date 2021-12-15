@@ -138,3 +138,26 @@ impl CacheBuilder {
             freshness_lifetime: self.config.freshness_lifetime,
             offline: self.config.offline,
             progress_bar: self.config.progress_bar,
+        })
+    }
+}
+
+impl Default for CacheBuilder {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+/// Options to use with [`Cache::cached_path_with_options`].
+#[derive(Default)]
+pub struct Options {
+    /// An optional subdirectory (relative to the cache root) to cache the resource in.
+    pub subdir: Option<String>,
+    /// Automatically extract the resource, assuming the resource is an archive.
+    pub extract: bool,
+}
+
+impl Options {
+    pub fn new(subdir: Option<&str>, extract: bool) -> Self {
+        Self {
+            subdir: subdir.map(String::from),
