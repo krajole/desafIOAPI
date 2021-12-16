@@ -192,3 +192,32 @@ pub struct Cache {
     /// If set, resources that were cached within the past `freshness_lifetime` seconds
     /// will always be regarded as fresh, and so the ETag of the corresponding remote
     /// resource won't be checked.
+    freshness_lifetime: Option<u64>,
+    /// Offline mode.
+    ///
+    /// If set to `true`, no HTTP calls will be made.
+    offline: bool,
+    /// The verbosity level of the progress bar.
+    progress_bar: Option<ProgressBar>,
+    /// The HTTP client used to fetch remote resources.
+    http_client: Client,
+}
+
+impl Cache {
+    /// Create a new `Cache` instance.
+    pub fn new() -> Result<Self, Error> {
+        Cache::builder().build()
+    }
+
+    /// Create a `CacheBuilder`.
+    pub fn builder() -> CacheBuilder {
+        CacheBuilder::new()
+    }
+
+    /// Get the cached path to a resource.
+    ///
+    /// If the resource is local file, it's path is returned. If the resource is a static HTTP
+    /// resource, it will cached locally and the path to the cache file will be returned.
+    pub fn cached_path(&self, resource: &str) -> Result<PathBuf, Error> {
+        self.cached_path_with_options(resource, &Options::default())
+    }
