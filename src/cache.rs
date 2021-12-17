@@ -276,3 +276,26 @@ impl Cache {
                 // so as not to mess with the file system outside of the cache directory.
                 // To make sure that we use a unique directory for each "version" of this local
                 // resource, we treat the last modified time as an ETag.
+                let resource_last_modified = fs::metadata(resource)?
+                    .modified()
+                    .ok()
+                    .and_then(|sys_time| sys_time.elapsed().ok())
+                    .map(|duration| format!("{}", duration.as_secs()));
+                extraction_dir = Some(self.resource_to_filepath(
+                    resource,
+                    &resource_last_modified,
+                    options.subdir.as_deref(),
+                    Some("-extracted"),
+                ));
+            }
+        } else {
+            // This is a remote resource, so fetch it to the cache.
+            let meta = self.fetch_remote_resource(resource, options.subdir.as_deref())?;
+
+            // Check if we need to extract.
+            if options.extract {
+                extraction_dir = Some(meta.get_extraction_path());
+            }
+
+            cached_path = meta.resource_path;
+        }
