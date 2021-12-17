@@ -221,3 +221,25 @@ impl Cache {
     pub fn cached_path(&self, resource: &str) -> Result<PathBuf, Error> {
         self.cached_path_with_options(resource, &Options::default())
     }
+
+    /// Get the cached path to a resource using the given options.
+    ///
+    /// # Examples
+    ///
+    /// Use a particular subdirectory of the cache root:
+    ///
+    /// ```rust,no_run
+    /// # use cached_path::{Cache, Options};
+    /// # let cache = Cache::new().unwrap();
+    /// # let subdir = "target";
+    /// # let resource = "README.md";
+    /// let path = cache.cached_path_with_options(
+    ///     resource,
+    ///     &Options::default().subdir(subdir),
+    /// ).unwrap();
+    /// ```
+    ///
+    /// Treat the resource as an archive and extract it. The path returned is the
+    /// path to the extraction directory:
+    ///
+    /// ```rust,no_run
