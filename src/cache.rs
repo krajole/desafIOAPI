@@ -243,3 +243,36 @@ impl Cache {
     /// path to the extraction directory:
     ///
     /// ```rust,no_run
+    /// # use cached_path::{Cache, Options};
+    /// # let cache = Cache::new().unwrap();
+    /// # let subdir = "target";
+    /// # let resource = "README.md";
+    /// let path = cache.cached_path_with_options(
+    ///     resource,
+    ///     &Options::default().extract(),
+    /// ).unwrap();
+    /// assert!(path.is_dir());
+    /// ```
+    pub fn cached_path_with_options(
+        &self,
+        resource: &str,
+        options: &Options,
+    ) -> Result<PathBuf, Error> {
+        let cached_path: PathBuf;
+        let mut extraction_dir: Option<PathBuf> = None;
+
+        if !resource.starts_with("http") {
+            // If resource doesn't look like a URL, treat as local path, but return
+            // an error if the path doesn't exist.
+            info!("Treating {} as local file", resource);
+            cached_path = PathBuf::from(resource);
+
+            if !cached_path.is_file() {
+                return Err(Error::ResourceNotFound(String::from(resource)));
+            }
+
+            if options.extract {
+                // If we need to extract, we extract into a unique subdirectory of the cache directory
+                // so as not to mess with the file system outside of the cache directory.
+                // To make sure that we use a unique directory for each "version" of this local
+                // resource, we treat the last modified time as an ETag.
