@@ -299,3 +299,35 @@ impl Cache {
 
             cached_path = meta.resource_path;
         }
+
+        if let Some(dirpath) = extraction_dir {
+            // Extract archive.
+            debug!("Treating {} as archive", resource);
+
+            fs::create_dir_all(dirpath.parent().unwrap())?;
+
+            // Need to acquire a lock here to make sure we don't try to extract
+            // the same archive in parallel from multiple processes.
+            debug!("Acquiring lock on extraction directory for {}", resource);
+            let lock_path = format!("{}.lock", dirpath.to_str().unwrap());
+            let filelock = OpenOptions::new()
+                .read(true)
+                .write(true)
+                .create(true)
+                .open(lock_path)?;
+            filelock.lock_exclusive()?;
+            debug!("Lock on extraction directory acquired for {}", resource);
+
+            if !dirpath.is_dir() {
+                info!("Extracting {} to {:?}", resource, dirpath);
+                let format = ArchiveFormat::parse_from_extension(resource)?;
+                extract_archive(&cached_path, &dirpath, &format)?;
+            }
+
+            filelock.unlock()?;
+            debug!("Lock released on extraction directory for {}", resource);
+
+            Ok(dirpath)
+        } else {
+            Ok(cached_path)
+        }
