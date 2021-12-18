@@ -411,3 +411,27 @@ impl Cache {
         if path.exists() {
             // Oh cool! The cache is up-to-date according to the ETAG.
             // We'll return the up-to-date version and clean up any other
+            // dangling ones.
+            info!("Cached version of {} is up-to-date", resource);
+            filelock.unlock()?;
+            return Meta::from_cache(&path);
+        }
+
+        // No up-to-date version cached, so we have to try downloading it.
+        let meta = self.try_download_resource(resource, &url, &path, &etag)?;
+
+        info!("New version of {} cached", resource);
+
+        filelock.unlock()?;
+        debug!("Lock released for {}", resource);
+
+        Ok(meta)
+    }
+
+    /// Find existing versions of a cached resource, sorted by most recent first.
+    fn find_existing(&self, resource: &str, subdir: Option<&str>) -> Vec<Meta> {
+        let mut existing_meta: Vec<Meta> = vec![];
+        let glob_string = format!(
+            "{}.*.meta",
+            self.resource_to_filepath(resource, &None, subdir, None)
+                .to_str()
