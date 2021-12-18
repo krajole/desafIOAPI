@@ -352,3 +352,34 @@ impl Cache {
         since = "0.4.4",
         note = "Please use Cache::cached_path_with_options() instead"
     )]
+    pub fn cached_path_in_subdir(
+        &self,
+        resource: &str,
+        subdir: Option<&str>,
+    ) -> Result<PathBuf, Error> {
+        let options = Options::new(subdir, false);
+        self.cached_path_with_options(resource, &options)
+    }
+
+    fn fetch_remote_resource(&self, resource: &str, subdir: Option<&str>) -> Result<Meta, Error> {
+        // Otherwise we attempt to parse the URL.
+        let url =
+            reqwest::Url::parse(resource).map_err(|_| Error::InvalidUrl(String::from(resource)))?;
+
+        // Ensure root directory exists in case it has changed or been removed.
+        if let Some(subdir_path) = subdir {
+            fs::create_dir_all(self.dir.join(subdir_path))?;
+        } else {
+            fs::create_dir_all(&self.dir)?;
+        };
+
+        // Find any existing cached versions of resource and check if they are still
+        // fresh according to the `freshness_lifetime` setting.
+        let versions = self.find_existing(resource, subdir); // already sorted, latest is first.
+        if self.offline {
+            if !versions.is_empty() {
+                info!("Found existing cached version of {}", resource);
+                return Ok(versions[0].clone());
+            } else {
+                error!("Offline mode is enabled but no cached versions of resource exist.");
+                return Err(Error::NoCachedVersions(String::from(resource)));
