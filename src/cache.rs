@@ -383,3 +383,31 @@ impl Cache {
             } else {
                 error!("Offline mode is enabled but no cached versions of resource exist.");
                 return Err(Error::NoCachedVersions(String::from(resource)));
+            }
+        } else if !versions.is_empty() && versions[0].is_fresh(self.freshness_lifetime) {
+            // Oh hey, the latest version is still fresh!
+            info!("Latest cached version of {} is still fresh", resource);
+            return Ok(versions[0].clone());
+        }
+
+        // No existing version or the existing versions are older than their freshness
+        // lifetimes, so we'll query for the ETAG of the resource and then compare
+        // that with any existing versions.
+        let etag = self.try_get_etag(resource, &url)?;
+        let path = self.resource_to_filepath(resource, &etag, subdir, None);
+
+        // Before going further we need to obtain a lock on the file to provide
+        // parallel downloads of the same resource.
+        debug!("Acquiring lock for cache of {}", resource);
+        let lock_path = format!("{}.lock", path.to_str().unwrap());
+        let filelock = OpenOptions::new()
+            .read(true)
+            .write(true)
+            .create(true)
+            .open(lock_path)?;
+        filelock.lock_exclusive()?;
+        debug!("Lock acquired for {}", resource);
+
+        if path.exists() {
+            // Oh cool! The cache is up-to-date according to the ETAG.
+            // We'll return the up-to-date version and clean up any other
