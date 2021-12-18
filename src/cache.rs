@@ -331,3 +331,24 @@ impl Cache {
         } else {
             Ok(cached_path)
         }
+    }
+
+    /// A convenience method to get the cached path to a resource using the given
+    /// cache subdirectory (relative to the cache root).
+    ///
+    /// This is equivalent to:
+    ///
+    /// ```rust,no_run
+    /// # use cached_path::{Cache, Options};
+    /// # let cache = Cache::new().unwrap();
+    /// # let subdir = "target";
+    /// # let resource = "README.md";
+    /// let path = cache.cached_path_with_options(
+    ///     resource,
+    ///     &Options::default().subdir(subdir),
+    /// ).unwrap();
+    /// ```
+    #[deprecated(
+        since = "0.4.4",
+        note = "Please use Cache::cached_path_with_options() instead"
+    )]
