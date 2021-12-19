@@ -435,3 +435,37 @@ impl Cache {
             "{}.*.meta",
             self.resource_to_filepath(resource, &None, subdir, None)
                 .to_str()
+                .unwrap(),
+        );
+        for meta_path in glob(&glob_string).unwrap().filter_map(Result::ok) {
+            if let Ok(meta) = Meta::from_path(&meta_path) {
+                existing_meta.push(meta);
+            }
+        }
+        existing_meta
+            .sort_unstable_by(|a, b| b.creation_time.partial_cmp(&a.creation_time).unwrap());
+        existing_meta
+    }
+
+    fn get_retry_delay(&self, retries: u32) -> u32 {
+        let between = Uniform::from(0..1000);
+        let mut rng = rand::thread_rng();
+        std::cmp::min(
+            2u32.pow(retries - 1) * 1000 + between.sample(&mut rng),
+            self.max_backoff,
+        )
+    }
+
+    fn try_download_resource(
+        &self,
+        resource: &str,
+        url: &reqwest::Url,
+        path: &Path,
+        etag: &Option<String>,
+    ) -> Result<Meta, Error> {
+        let mut retries: u32 = 0;
+        loop {
+            match self.download_resource(resource, url, path, etag) {
+                Ok(meta) => {
+                    return Ok(meta);
+                }
