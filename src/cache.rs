@@ -469,3 +469,31 @@ impl Cache {
                 Ok(meta) => {
                     return Ok(meta);
                 }
+                Err(err) => {
+                    if retries >= self.max_retries {
+                        error!("Max retries exceeded for {}", resource);
+                        return Err(err);
+                    }
+                    if !err.is_retriable() {
+                        error!("Download failed for {} with fatal error, {}", resource, err);
+                        return Err(err);
+                    }
+                    retries += 1;
+                    let retry_delay = self.get_retry_delay(retries);
+                    warn!(
+                        "Download failed for {}: {}\nRetrying in {} milliseconds...",
+                        resource, err, retry_delay
+                    );
+                    thread::sleep(time::Duration::from_millis(u64::from(retry_delay)));
+                }
+            }
+        }
+    }
+
+    fn download_resource(
+        &self,
+        resource: &str,
+        url: &reqwest::Url,
+        path: &Path,
+        etag: &Option<String>,
+    ) -> Result<Meta, Error> {
