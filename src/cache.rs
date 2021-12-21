@@ -497,3 +497,29 @@ impl Cache {
         path: &Path,
         etag: &Option<String>,
     ) -> Result<Meta, Error> {
+        debug!("Attempting connection to {}", url);
+
+        let mut response = self
+            .http_client
+            .get(url.clone())
+            .send()?
+            .error_for_status()?;
+
+        debug!("Opened connection to {}", url);
+
+        // First we make a temporary file and download the contents of the resource into it.
+        // Otherwise if we wrote directly to the cache file and the download got
+        // interrupted we could be left with a corrupted cache file.
+        let tempfile = NamedTempFile::new_in(path.parent().unwrap())?;
+        let mut tempfile_write_handle = OpenOptions::new().write(true).open(tempfile.path())?;
+
+        info!("Starting download of {}", url);
+
+        let bytes = if let Some(progress_bar) = &self.progress_bar {
+            let mut download_wrapper = progress_bar.wrap_download(
+                resource,
+                response.content_length(),
+                tempfile_write_handle,
+            );
+            let bytes = response.copy_to(&mut download_wrapper)?;
+            download_wrapper.finish();
