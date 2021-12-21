@@ -542,3 +542,34 @@ impl Cache {
         debug!("Renaming temp file to cache location for {}", url);
 
         fs::rename(tempfile.path(), path)?;
+
+        Ok(meta)
+    }
+
+    fn try_get_etag(&self, resource: &str, url: &reqwest::Url) -> Result<Option<String>, Error> {
+        let mut retries: u32 = 0;
+        loop {
+            match self.get_etag(url) {
+                Ok(etag) => return Ok(etag),
+                Err(err) => {
+                    if retries >= self.max_retries {
+                        error!("Max retries exceeded for {}", resource);
+                        return Err(err);
+                    }
+                    if !err.is_retriable() {
+                        error!("ETAG fetch for {} failed with fatal error", resource);
+                        return Err(err);
+                    }
+                    retries += 1;
+                    let retry_delay = self.get_retry_delay(retries);
+                    warn!(
+                        "ETAG fetch failed for {}, retrying in {} milliseconds...",
+                        resource, retry_delay
+                    );
+                    thread::sleep(time::Duration::from_millis(u64::from(retry_delay)));
+                }
+            }
+        }
+    }
+
+    fn get_etag(&self, url: &reqwest::Url) -> Result<Option<String>, Error> {
