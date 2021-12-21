@@ -523,3 +523,22 @@ impl Cache {
             );
             let bytes = response.copy_to(&mut download_wrapper)?;
             download_wrapper.finish();
+            bytes
+        } else {
+            response.copy_to(&mut tempfile_write_handle)?
+        };
+
+        info!("Downloaded {} bytes", bytes);
+        debug!("Writing meta file");
+
+        let meta = Meta::new(
+            String::from(resource),
+            path.into(),
+            etag.clone(),
+            self.freshness_lifetime,
+        );
+        meta.to_file()?;
+
+        debug!("Renaming temp file to cache location for {}", url);
+
+        fs::rename(tempfile.path(), path)?;
