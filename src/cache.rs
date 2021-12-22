@@ -573,3 +573,32 @@ impl Cache {
     }
 
     fn get_etag(&self, url: &reqwest::Url) -> Result<Option<String>, Error> {
+        debug!("Fetching ETAG for {}", url);
+        let response = self
+            .http_client
+            .head(url.clone())
+            .send()?
+            .error_for_status()?;
+        if let Some(etag) = response.headers().get(ETAG) {
+            if let Ok(s) = etag.to_str() {
+                Ok(Some(s.into()))
+            } else {
+                debug!("No ETAG for {}", url);
+                Ok(None)
+            }
+        } else {
+            Ok(None)
+        }
+    }
+
+    fn resource_to_filepath(
+        &self,
+        resource: &str,
+        etag: &Option<String>,
+        subdir: Option<&str>,
+        suffix: Option<&str>,
+    ) -> PathBuf {
+        let resource_hash = hash_str(resource);
+        let mut filename = if let Some(tag) = etag {
+            let etag_hash = hash_str(&tag[..]);
+            format!("{}.{}", resource_hash, etag_hash)
