@@ -602,3 +602,28 @@ impl Cache {
         let mut filename = if let Some(tag) = etag {
             let etag_hash = hash_str(&tag[..]);
             format!("{}.{}", resource_hash, etag_hash)
+        } else {
+            resource_hash
+        };
+
+        if let Some(suf) = suffix {
+            filename.push_str(suf);
+        }
+
+        let filepath = PathBuf::from(filename);
+
+        if let Some(subdir_path) = subdir {
+            self.dir.join(subdir_path).join(filepath)
+        } else {
+            self.dir.join(filepath)
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use tempfile::tempdir;
+
+    #[test]
+    fn test_url_to_filename_with_etag() {
