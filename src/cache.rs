@@ -701,3 +701,23 @@ mod tests {
 
     #[test]
     fn test_url_to_filename_with_suffix() {
+        let cache_dir = tempdir().unwrap();
+        let cache = Cache::builder()
+            .dir(cache_dir.path().to_owned())
+            .build()
+            .unwrap();
+
+        let resource = "http://localhost:5000/foo.txt";
+        assert_eq!(
+            cache
+                .resource_to_filepath(resource, &None, Some("target"), Some("-extracted"))
+                .to_str()
+                .unwrap(),
+            format!(
+                "{}{}{}{}{}-extracted",
+                cache_dir.path().to_str().unwrap(),
+                std::path::MAIN_SEPARATOR,
+                "target",
+                std::path::MAIN_SEPARATOR,
+                "b5696dbf866311125e26a62bef0125854dd40f010a70be9cfd23634c997c1874",
+            )
