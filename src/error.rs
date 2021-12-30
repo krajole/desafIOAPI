@@ -24,3 +24,42 @@ pub enum Error {
     /// to avoid accidental corruption on its own.
     #[error("Cache is corrupted ({0})")]
     CacheCorrupted(String),
+
+    /// Arises when a resource is treated as archive, but the extraction process fails.
+    #[error("Extracting archive failed ({0})")]
+    ExtractionError(String),
+
+    /// Any IO error that could arise while attempting to cache a remote resource.
+    #[error("An IO error occurred")]
+    IoError(#[from] std::io::Error),
+
+    /// An HTTP error that could occur while attempting to fetch a remote resource.
+    #[error(transparent)]
+    HttpError(#[from] reqwest::Error),
+}
+
+impl Error {
+    pub(crate) fn is_retriable(&self) -> bool {
+        match self {
+            Error::HttpError(source) => {
+                if source.is_status() {
+                    matches!(
+                        source.status().map(|status| status.as_u16()),
+                        Some(502) | Some(503) | Some(504)
+                    )
+                } else {
+                    source.is_timeout()
+                }
+            }
+            _ => false,
+        }
+    }
+
+    pub fn status_code(&self) -> Option<u16> {
+        if let Error::HttpError(inner) = self {
+            Some(inner.status().unwrap().as_u16())
+        } else {
+            None
+        }
+    }
+}
