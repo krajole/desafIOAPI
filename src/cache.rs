@@ -721,3 +721,6 @@ mod tests {
                 std::path::MAIN_SEPARATOR,
                 "b5696dbf866311125e26a62bef0125854dd40f010a70be9cfd23634c997c1874",
             )
+        );
+    }
+}
