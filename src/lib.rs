@@ -54,3 +54,35 @@
 //! automatically extract the files:
 //!
 //! ```rust
+//! use cached_path::{cached_path_with_options, Options};
+//!
+//! let path = cached_path_with_options(
+//!     "https://raw.githubusercontent.com/epwalsh/rust-cached-path/main/test_fixtures/utf-8_sample/archives/utf-8.tar.gz",
+//!     &Options::default().extract(),
+//! ).unwrap();
+//! assert!(path.is_dir());
+//! ```
+//!
+//! ```bash
+//! # From the command line:
+//! $ cached-path --extract https://raw.githubusercontent.com/epwalsh/rust-cached-path/main/test_fixtures/utf-8_sample/archives/utf-8.tar.gz
+//! README.md
+//! ```
+//!
+//! It's also easy to customize the cache location, the HTTP client, and other options
+//! using a [`CacheBuilder`](crate::cache::CacheBuilder) to construct a custom
+//! [`Cache`](crate::cache::Cache) object. This is the recommended thing
+//! to do if your application makes multiple calls to `cached_path`, since it avoids the overhead
+//! of creating a new HTTP client on each call:
+//!
+//! ```rust
+//! use cached_path::Cache;
+//!
+//! let cache = Cache::builder()
+//!     .dir(std::env::temp_dir().join("my-cache/"))
+//!     .connect_timeout(std::time::Duration::from_secs(3))
+//!     .build().unwrap();
+//! let path = cache.cached_path("README.md").unwrap();
+//! ```
+//!
+//! ```bash
