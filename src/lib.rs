@@ -86,3 +86,30 @@
 //! ```
 //!
 //! ```bash
+//! # From the command line:
+//! $ cached-path --dir /tmp/my-cache/ --connect-timeout 3 README.md
+//! README.md
+//! ```
+
+use std::path::PathBuf;
+
+pub(crate) mod archives;
+mod cache;
+mod error;
+pub(crate) mod meta;
+mod progress_bar;
+pub(crate) mod utils;
+
+pub use crate::cache::{Cache, CacheBuilder, Options};
+pub use crate::error::Error;
+pub use crate::progress_bar::ProgressBar;
+
+/// Get the cached path to a resource.
+///
+/// This is equivalent to calling [`Cache::cached_path`](crate::cache::Cache#method.cached_path)
+/// with a temporary [`Cache`](crate::cache::Cache) object.
+/// Therefore if you're going to be calling this function multiple times,
+/// it's more efficient to create and use a single `Cache` instead.
+pub fn cached_path(resource: &str) -> Result<PathBuf, Error> {
+    let cache = Cache::builder().build()?;
+    cache.cached_path(resource)
