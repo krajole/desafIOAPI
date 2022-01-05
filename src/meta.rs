@@ -26,3 +26,34 @@ pub(crate) struct Meta {
 impl Meta {
     pub(crate) fn new(
         resource: String,
+        resource_path: PathBuf,
+        etag: Option<String>,
+        freshness_lifetime: Option<u64>,
+    ) -> Meta {
+        let mut expires: Option<f64> = None;
+        let creation_time = now();
+        if let Some(lifetime) = freshness_lifetime {
+            expires = Some(creation_time + (lifetime as f64));
+        }
+        let meta_path = Meta::meta_path(&resource_path);
+        Meta {
+            resource,
+            resource_path,
+            meta_path,
+            etag,
+            expires,
+            creation_time,
+        }
+    }
+
+    pub(crate) fn meta_path(resource_path: &Path) -> PathBuf {
+        let mut meta_path = PathBuf::from(resource_path);
+        let resource_file_name = meta_path.file_name().unwrap().to_str().unwrap();
+        let meta_file_name = format!("{}.meta", resource_file_name);
+        meta_path.set_file_name(&meta_file_name[..]);
+        meta_path
+    }
+
+    pub(crate) fn get_extraction_path(&self) -> PathBuf {
+        let dirname = format!(
+            "{}-extracted",
