@@ -70,3 +70,25 @@ fn main() -> Result<()> {
     let cache = build_cache_from_opt(&opt)?;
     let options = Options::new(opt.subdir.as_deref(), opt.extract);
     let path = cache.cached_path_with_options(&opt.resource, &options)?;
+    println!("{}", path.to_string_lossy());
+
+    Ok(())
+}
+
+fn build_cache_from_opt(opt: &Opt) -> Result<Cache, Error> {
+    let mut cache_builder = Cache::builder().offline(opt.offline);
+    if let Some(dir) = &opt.dir {
+        cache_builder = cache_builder.dir(dir.clone());
+    }
+    if let Some(timeout) = opt.timeout {
+        cache_builder = cache_builder.timeout(Duration::from_secs(timeout));
+    }
+    if let Some(connect_timeout) = opt.connect_timeout {
+        cache_builder = cache_builder.connect_timeout(Duration::from_secs(connect_timeout));
+    }
+    if let Some(freshness_lifetime) = opt.freshness_lifetime {
+        cache_builder = cache_builder.freshness_lifetime(freshness_lifetime);
+    }
+    cache_builder = cache_builder.max_retries(opt.max_retries);
+    cache_builder = cache_builder.max_backoff(opt.max_backoff);
+    if !opt.quietly {
