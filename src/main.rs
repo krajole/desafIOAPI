@@ -44,3 +44,29 @@ struct Opt {
     max_retries: u32,
 
     #[structopt(long = "max-backoff", default_value = "5000")]
+    /// Set the maximum backoff delay in milliseconds for retrying HTTP requests.
+    max_backoff: u32,
+
+    #[structopt(long = "freshness-lifetime")]
+    /// Set the a default freshness lifetime (in seconds) for cached resources.
+    freshness_lifetime: Option<u64>,
+
+    #[structopt(long = "offline")]
+    /// Only use offline features.
+    offline: bool,
+
+    #[structopt(short = "-q", long = "quietly")]
+    /// Disable the progress bar for downloads.
+    quietly: bool,
+}
+
+fn main() -> Result<()> {
+    color_eyre::install()?;
+    env_logger::init();
+    let opt = Opt::from_args();
+
+    debug!("{:?}", opt);
+
+    let cache = build_cache_from_opt(&opt)?;
+    let options = Options::new(opt.subdir.as_deref(), opt.extract);
+    let path = cache.cached_path_with_options(&opt.resource, &options)?;
