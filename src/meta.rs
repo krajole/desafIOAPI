@@ -57,3 +57,25 @@ impl Meta {
     pub(crate) fn get_extraction_path(&self) -> PathBuf {
         let dirname = format!(
             "{}-extracted",
+            self.resource_path.file_name().unwrap().to_str().unwrap()
+        );
+        self.resource_path.parent().unwrap().join(dirname)
+    }
+
+    pub(crate) fn to_file(&self) -> Result<(), Error> {
+        let serialized = serde_json::to_string(self).unwrap();
+        fs::write(&self.meta_path, &serialized[..])?;
+        Ok(())
+    }
+
+    pub(crate) fn from_cache(resource_path: &Path) -> Result<Self, Error> {
+        let meta_path = Meta::meta_path(resource_path);
+        Meta::from_path(&meta_path)
+    }
+
+    /// Read `Meta` from a path.
+    pub(crate) fn from_path(path: &Path) -> Result<Self, Error> {
+        if !path.is_file() {
+            return Err(Error::CacheCorrupted(format!("missing meta at {:?}", path)));
+        }
+        let serialized = fs::read_to_string(path)?;
