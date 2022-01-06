@@ -79,3 +79,22 @@ impl Meta {
             return Err(Error::CacheCorrupted(format!("missing meta at {:?}", path)));
         }
         let serialized = fs::read_to_string(path)?;
+        let meta: Meta = serde_json::from_str(&serialized[..])
+            .map_err(|e| Error::CacheCorrupted(format!("invalid meta at {:?}: {:?}", path, e)))?;
+        Ok(meta)
+    }
+
+    /// Check if resource is still fresh. Passing a `Some` value for
+    /// `freshness_lifetime` will override the expiration time (if there is one)
+    /// of this resource.
+    pub(crate) fn is_fresh(&self, freshness_lifetime: Option<u64>) -> bool {
+        if let Some(lifetime) = freshness_lifetime {
+            let expiration_time = self.creation_time + (lifetime as f64);
+            expiration_time > now()
+        } else if let Some(expiration_time) = self.expires {
+            expiration_time > now()
+        } else {
+            false
+        }
+    }
+}
