@@ -39,3 +39,30 @@ impl ProgressBar {
 }
 
 pub(crate) struct DownloadWrapper<W: Write> {
+    bar: Box<dyn DownloadBar>,
+    writer: W,
+}
+
+impl<W> DownloadWrapper<W>
+where
+    W: Write,
+{
+    fn new(bar: Box<dyn DownloadBar>, writer: W) -> Self {
+        Self { bar, writer }
+    }
+
+    pub(crate) fn finish(&self) {
+        self.bar.finish();
+    }
+}
+
+impl<W: Write> Write for DownloadWrapper<W> {
+    fn write(&mut self, buf: &[u8]) -> io::Result<usize> {
+        self.writer.write(buf)
+    }
+
+    fn flush(&mut self) -> io::Result<()> {
+        self.writer.flush()
+    }
+
+    fn write_vectored(&mut self, bufs: &[io::IoSlice]) -> io::Result<usize> {
