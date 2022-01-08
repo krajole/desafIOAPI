@@ -66,3 +66,24 @@ impl<W: Write> Write for DownloadWrapper<W> {
     }
 
     fn write_vectored(&mut self, bufs: &[io::IoSlice]) -> io::Result<usize> {
+        self.writer.write_vectored(bufs)
+    }
+
+    fn write_all(&mut self, buf: &[u8]) -> io::Result<()> {
+        self.writer.write_all(buf).map(|()| {
+            self.bar.tick(buf.len());
+        })
+    }
+}
+
+trait DownloadBar {
+    fn tick(&mut self, chunk_size: usize);
+
+    fn finish(&self);
+}
+
+pub(crate) struct FullDownloadBar {
+    bar: indicatif::ProgressBar,
+}
+
+impl FullDownloadBar {
