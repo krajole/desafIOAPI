@@ -87,3 +87,31 @@ pub(crate) struct FullDownloadBar {
 }
 
 impl FullDownloadBar {
+    pub(crate) fn new(content_length: Option<u64>) -> Self {
+        let bar = match content_length {
+            Some(length) => {
+                let bar = indicatif::ProgressBar::new(length);
+                bar.set_style(
+                    indicatif::ProgressStyle::default_bar()
+                    .progress_chars("=>-")
+                    .template(
+                        "{msg:.bold.cyan/blue} [{bar:20.cyan/blue}][{percent}%] {bytes}/{total_bytes:.bold} |{bytes_per_sec}|",
+                    )
+                );
+                bar
+            }
+            None => {
+                let bar = indicatif::ProgressBar::new_spinner();
+                bar.set_style(
+                    indicatif::ProgressStyle::default_bar()
+                        .tick_strings(&[
+                            "⠁⠁⠉⠙⠚⠒⠂⠂⠒⠲⠴⠤⠄⠄⠤⠠⠠⠤⠦⠖",
+                            "⠉⠙⠚⠒⠂⠂⠒⠲⠴⠤⠄⠄⠤⠠⠠⠤⠦⠖⠒⠐",
+                            "⠚⠒⠂⠂⠒⠲⠴⠤⠄⠄⠤⠠⠠⠤⠦⠖⠒⠐⠐⠒",
+                            "⠂⠂⠒⠲⠴⠤⠄⠄⠤⠠⠠⠤⠦⠖⠒⠐⠐⠒⠓⠋",
+                            "⠒⠲⠴⠤⠄⠄⠤⠠⠠⠤⠦⠖⠒⠐⠐⠒⠓⠋⠉⠈",
+                            "⠴⠤⠄⠄⠤⠠⠠⠤⠦⠖⠒⠐⠐⠒⠓⠋⠉⠈⠈⠉",
+                            "⠄⠄⠤⠠⠠⠤⠦⠖⠒⠐⠐⠒⠓⠋⠉⠈⠈⠉⠙⠚",
+                            "⠤⠠⠠⠤⠦⠖⠒⠐⠐⠒⠓⠋⠉⠈⠈⠉⠙⠚⠒⠂",
+                            "⠠⠤⠦⠖⠒⠐⠐⠒⠓⠋⠉⠈⠈⠉⠙⠚⠒⠂⠂⠒",
+                            "⠦⠖⠒⠐⠐⠒⠓⠋⠉⠈⠈⠉⠙⠚⠒⠂⠂⠒⠲⠴",
