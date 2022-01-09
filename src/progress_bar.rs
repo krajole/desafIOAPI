@@ -149,3 +149,41 @@ impl DownloadBar for FullDownloadBar {
         self.bar.finish_at_current_pos();
     }
 }
+
+pub(crate) struct LightDownloadBar {
+    start_time: Instant,
+    bytes: usize,
+    bytes_since_last_update: usize,
+}
+
+impl LightDownloadBar {
+    pub(crate) fn new(resource: &str, content_length: Option<u64>) -> Self {
+        if let Some(size) = content_length {
+            eprint!(
+                "Downloading {} [{}]...",
+                resource,
+                indicatif::HumanBytes(size)
+            );
+        } else {
+            eprint!("Downloading {}...", resource);
+        }
+        io::stderr().flush().ok();
+        Self {
+            start_time: Instant::now(),
+            bytes: 0,
+            bytes_since_last_update: 0,
+        }
+    }
+}
+
+impl DownloadBar for LightDownloadBar {
+    fn tick(&mut self, chunk_size: usize) {
+        self.bytes_since_last_update += chunk_size;
+        // Update every 100 MBs.
+        if self.bytes_since_last_update > 100_000_000 {
+            eprint!(".");
+            io::stderr().flush().ok();
+            self.bytes_since_last_update = 0;
+        }
+        self.bytes += chunk_size;
+    }
