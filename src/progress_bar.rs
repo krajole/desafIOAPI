@@ -115,3 +115,37 @@ impl FullDownloadBar {
                             "⠤⠠⠠⠤⠦⠖⠒⠐⠐⠒⠓⠋⠉⠈⠈⠉⠙⠚⠒⠂",
                             "⠠⠤⠦⠖⠒⠐⠐⠒⠓⠋⠉⠈⠈⠉⠙⠚⠒⠂⠂⠒",
                             "⠦⠖⠒⠐⠐⠒⠓⠋⠉⠈⠈⠉⠙⠚⠒⠂⠂⠒⠲⠴",
+                            "⠒⠐⠐⠒⠓⠋⠉⠈⠈⠉⠙⠚⠒⠂⠂⠒⠲⠴⠤⠄",
+                            "⠐⠒⠓⠋⠉⠈⠈⠉⠙⠚⠒⠂⠂⠒⠲⠴⠤⠄⠄⠤",
+                            "⠓⠋⠉⠈⠈⠉⠙⠚⠒⠂⠂⠒⠲⠴⠤⠄⠄⠤⠠⠠",
+                        ])
+                        .template(
+                            "{msg:.bold.cyan/blue} [{spinner:.cyan/blue}] {bytes:.bold} |{bytes_per_sec}|",
+                        ),
+                );
+                bar
+            }
+        };
+        bar.set_message("Downloading");
+        // Update every 1 MBs.
+        // NOTE: If we don't set this, the updates happen WAY too frequently and it makes downloads
+        // take about twice as long.
+        bar.set_draw_delta(1_000_000);
+        Self { bar }
+    }
+}
+
+impl DownloadBar for FullDownloadBar {
+    fn tick(&mut self, chunk_size: usize) {
+        self.bar.inc(chunk_size as u64);
+    }
+
+    fn finish(&self) {
+        self.bar.set_message("Downloaded");
+        self.bar.set_style(
+            indicatif::ProgressStyle::default_bar()
+                .template("{msg:.green.bold} {total_bytes:.bold} in {elapsed}"),
+        );
+        self.bar.finish_at_current_pos();
+    }
+}
