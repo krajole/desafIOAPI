@@ -187,3 +187,13 @@ impl DownloadBar for LightDownloadBar {
         }
         self.bytes += chunk_size;
     }
+
+    fn finish(&self) {
+        let duration = Instant::now().duration_since(self.start_time);
+        eprintln!(
+            " ✓ Done! Finished in {}",
+            indicatif::HumanDuration(duration)
+        );
+        io::stderr().flush().ok();
+    }
+}
