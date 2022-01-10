@@ -1,2 +1,3 @@
 use crate::{meta::Meta, Cache, Options};
-use http
+use httpmock::Method::{GET, HEAD};
+use 
