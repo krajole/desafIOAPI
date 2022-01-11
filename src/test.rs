@@ -4,4 +4,6 @@ use httpmock::{MockRef, MockServer};
 use std::fs;
 use std::path::Path;
 use std::path::PathBuf;
-use tempfile::
+use tempfile::tempdir;
+
+static ETAG_KEY: &s
