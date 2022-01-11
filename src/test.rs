@@ -3,4 +3,5 @@ use httpmock::Method::{GET, HEAD};
 use httpmock::{MockRef, MockServer};
 use std::fs;
 use std::path::Path;
-use std::p
+use std::path::PathBuf;
+use tempfile::
