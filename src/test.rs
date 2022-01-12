@@ -6,4 +6,6 @@ use std::path::Path;
 use std::path::PathBuf;
 use tempfile::tempdir;
 
-static ETAG_KEY: &s
+static ETAG_KEY: &str = "ETag";
+
+struct Fix
