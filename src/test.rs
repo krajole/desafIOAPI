@@ -11,4 +11,7 @@ static ETAG_KEY: &str = "ETag";
 struct Fixture<'a> {
     url: String,
     get: MockRef<'a>,
-   
+    head: MockRef<'a>,
+}
+
+impl<'
