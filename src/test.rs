@@ -14,4 +14,5 @@ struct Fixture<'a> {
     head: MockRef<'a>,
 }
 
-impl<'
+impl<'a> Fixture<'a> {
+  
