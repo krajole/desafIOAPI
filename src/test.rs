@@ -8,4 +8,6 @@ use tempfile::tempdir;
 
 static ETAG_KEY: &str = "ETag";
 
-struct Fix
+struct Fixture<'a> {
+    url: String,
+ 
