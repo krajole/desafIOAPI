@@ -15,4 +15,4 @@ struct Fixture<'a> {
 }
 
 impl<'a> Fixture<'a> {
-    fn load(server: &'a MockS
+    fn load(server: &'a MockServer, fixture_path: &'a str, etag: 
