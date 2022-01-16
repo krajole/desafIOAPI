@@ -16,4 +16,4 @@ struct Fixture<'a> {
 
 impl<'a> Fixture<'a> {
     fn load(server: &'a MockServer, fixture_path: &'a str, etag: &'a str) -> Self {
-        let m
+        let mut local_path = Pa
