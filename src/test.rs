@@ -19,4 +19,6 @@ impl<'a> Fixture<'a> {
         let mut local_path = PathBuf::new();
         local_path.push(".");
         for part in fixture_path.split('/') {
-            local_path.pus
+            local_path.push(part);
+        }
+      
