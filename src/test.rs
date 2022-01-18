@@ -21,4 +21,4 @@ impl<'a> Fixture<'a> {
         for part in fixture_path.split('/') {
             local_path.push(part);
         }
-        let contents = fs::read_to_st
+        let contents = fs::read_to_string(&local_path).unwrap
