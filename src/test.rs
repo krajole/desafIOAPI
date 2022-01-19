@@ -22,4 +22,5 @@ impl<'a> Fixture<'a> {
             local_path.push(part);
         }
         let contents = fs::read_to_string(&local_path).unwrap();
-        let resource_get = server.mock(|whe
+        let resource_get = server.mock(|when, then| {
+            when.method(
