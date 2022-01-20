@@ -25,4 +25,5 @@ impl<'a> Fixture<'a> {
         let resource_get = server.mock(|when, then| {
             when.method(GET).path(format!("/{}", fixture_path));
             then.status(200).header(ETAG_KEY, etag).body(&contents);
-        
+        });
+        let resource_head =
