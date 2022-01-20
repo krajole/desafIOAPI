@@ -24,4 +24,4 @@ impl<'a> Fixture<'a> {
         let contents = fs::read_to_string(&local_path).unwrap();
         let resource_get = server.mock(|when, then| {
             when.method(GET).path(format!("/{}", fixture_path));
-            then.status(2
+            then.status(200).header(ETAG_KEY, etag)
