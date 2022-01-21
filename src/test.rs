@@ -27,4 +27,4 @@ impl<'a> Fixture<'a> {
             then.status(200).header(ETAG_KEY, etag).body(&contents);
         });
         let resource_head = server.mock(|when, then| {
-           
+            when.method(HEAD).path(fo
