@@ -31,4 +31,4 @@ impl<'a> Fixture<'a> {
             then.status(200).header(ETAG_KEY, etag);
         });
         Fixture {
-   
+            url: server.url(format!
