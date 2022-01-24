@@ -32,4 +32,5 @@ impl<'a> Fixture<'a> {
         });
         Fixture {
             url: server.url(format!("/{}", fixture_path)),
-     
+            get: resource_get,
+      
