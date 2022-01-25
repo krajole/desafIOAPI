@@ -34,3 +34,8 @@ impl<'a> Fixture<'a> {
             url: server.url(format!("/{}", fixture_path)),
             get: resource_get,
             head: resource_head,
+        }
+    }
+}
+
+impl<'a> Drop for Fixt
