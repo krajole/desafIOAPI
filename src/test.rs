@@ -39,4 +39,5 @@ impl<'a> Fixture<'a> {
 }
 
 impl<'a> Drop for Fixture<'a> {
-    fn drop(&mu
+    fn drop(&mut self) {
+        self.head.de
