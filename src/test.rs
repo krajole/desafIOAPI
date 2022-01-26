@@ -38,4 +38,5 @@ impl<'a> Fixture<'a> {
     }
 }
 
-impl<'a> Drop for Fixt
+impl<'a> Drop for Fixture<'a> {
+    fn drop(&mu
