@@ -46,3 +46,4 @@ impl<'a> Drop for Fixture<'a> {
 }
 
 #[test]
+fn test_get_cached_path_local_f
