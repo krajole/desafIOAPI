@@ -40,4 +40,5 @@ impl<'a> Fixture<'a> {
 
 impl<'a> Drop for Fixture<'a> {
     fn drop(&mut self) {
-        self.head.de
+        self.head.delete();
+        sel
