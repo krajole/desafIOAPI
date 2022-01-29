@@ -48,4 +48,5 @@ impl<'a> Drop for Fixture<'a> {
 #[test]
 fn test_get_cached_path_local_file() {
     // Setup cache.
-    let cache_dir 
+    let cache_dir = tempdir().unwrap();
+   
