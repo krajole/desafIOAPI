@@ -52,4 +52,6 @@ fn test_get_cached_path_local_file() {
     let cache = Cache::builder()
         .dir(cache_dir.path().to_owned())
         .progress_bar(None)
-        .bu
+        .build()
+        .unwrap();
+
