@@ -55,4 +55,5 @@ fn test_get_cached_path_local_file() {
         .build()
         .unwrap();
 
-    let path = cache.cached_pa
+    let path = cache.cached_path("README.md").unwrap();
+    assert_eq!
