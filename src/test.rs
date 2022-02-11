@@ -55,3 +55,4 @@ fn test_get_cached_path_local_file() {
         .build()
         .unwrap();
 
+    let path = cache.cached_pa
