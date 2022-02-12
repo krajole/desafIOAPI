@@ -56,4 +56,4 @@ fn test_get_cached_path_local_file() {
         .unwrap();
 
     let path = cache.cached_path("README.md").unwrap();
-    assert_eq!
+    assert_eq!(path, Path::new("README.m
