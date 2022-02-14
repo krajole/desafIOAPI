@@ -60,4 +60,4 @@ fn test_get_cached_path_local_file() {
 }
 
 #[test]
-fn test_get_c
+fn test_get_cached_path_non_existant_local_file_fa
