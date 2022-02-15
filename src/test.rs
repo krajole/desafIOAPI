@@ -62,4 +62,5 @@ fn test_get_cached_path_local_file() {
 #[test]
 fn test_get_cached_path_non_existant_local_file_fails() {
     // Setup cache.
-    let cache_dir = tempd
+    let cache_dir = tempdir().unwrap();
+    let c
