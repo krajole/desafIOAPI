@@ -69,4 +69,5 @@ fn test_get_cached_path_non_existant_local_file_fails() {
         .build()
         .unwrap();
 
-    let result = cache.ca
+    let result = cache.cached_path("BLAH");
+    assert
