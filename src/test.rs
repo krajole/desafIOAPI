@@ -70,4 +70,8 @@ fn test_get_cached_path_non_existant_local_file_fails() {
         .unwrap();
 
     let result = cache.cached_path("BLAH");
-    assert
+    assert!(result.is_err());
+}
+
+#[test]
+fn te
