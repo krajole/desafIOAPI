@@ -74,4 +74,5 @@ fn test_get_cached_path_non_existant_local_file_fails() {
 }
 
 #[test]
-fn te
+fn test_cached_path_remote_file() {
+  
