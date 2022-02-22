@@ -76,4 +76,4 @@ fn test_get_cached_path_non_existant_local_file_fails() {
 #[test]
 fn test_cached_path_remote_file() {
     // For debugging:
- 
+    // let _ = env_logge
