@@ -80,4 +80,5 @@ fn test_cached_path_remote_file() {
     let server = MockServer::start();
 
     // Setup cache.
-    let cache_dir = tempdir().
+    let cache_dir = tempdir().unwrap();
+    let cache
