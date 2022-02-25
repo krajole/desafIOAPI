@@ -81,4 +81,5 @@ fn test_cached_path_remote_file() {
 
     // Setup cache.
     let cache_dir = tempdir().unwrap();
-    let cache
+    let cache = Cache::builder()
+        .
