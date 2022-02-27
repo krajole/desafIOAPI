@@ -88,4 +88,5 @@ fn test_cached_path_remote_file() {
         .build()
         .unwrap();
 
-    // Mock the
+    // Mock the resource.
+    let fixture 
