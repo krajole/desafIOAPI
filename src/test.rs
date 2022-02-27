@@ -85,4 +85,5 @@ fn test_cached_path_remote_file() {
         .dir(cache_dir.path().to_owned())
         .progress_bar(None)
         .freshness_lifetime(300)
-  
+        .build()
+        .un
