@@ -86,4 +86,6 @@ fn test_cached_path_remote_file() {
         .progress_bar(None)
         .freshness_lifetime(300)
         .build()
-        .un
+        .unwrap();
+
+    // Mock the
