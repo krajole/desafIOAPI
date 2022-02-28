@@ -89,4 +89,4 @@ fn test_cached_path_remote_file() {
         .unwrap();
 
     // Mock the resource.
-    let fixture = Fixture::load(&ser
+    let fixture = Fixture::load(&server, "test_fixtures/hello.txt", "
