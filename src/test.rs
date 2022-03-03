@@ -90,4 +90,6 @@ fn test_cached_path_remote_file() {
 
     // Mock the resource.
     let fixture = Fixture::load(&server, "test_fixtures/hello.txt", "fake-etag");
-    let resource =
+    let resource = fixture.url.as_str();
+
+   
