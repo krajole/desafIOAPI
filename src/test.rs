@@ -93,4 +93,6 @@ fn test_cached_path_remote_file() {
     let resource = fixture.url.as_str();
 
     // Get the cached path.
-    let path = cache.cached_p
+    let path = cache.cached_path(resource).unwrap();
+
+    asse
