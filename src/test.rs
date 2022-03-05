@@ -95,4 +95,4 @@ fn test_cached_path_remote_file() {
     // Get the cached path.
     let path = cache.cached_path(resource).unwrap();
 
-    asse
+    assert_eq!(fixture.head.hits(), 1);
