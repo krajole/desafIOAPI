@@ -96,4 +96,6 @@ fn test_cached_path_remote_file() {
     let path = cache.cached_path(resource).unwrap();
 
     assert_eq!(fixture.head.hits(), 1);
-    assert_eq!(fixture.get.
+    assert_eq!(fixture.get.hits(), 1);
+
+    // Ens
