@@ -98,4 +98,5 @@ fn test_cached_path_remote_file() {
     assert_eq!(fixture.head.hits(), 1);
     assert_eq!(fixture.get.hits(), 1);
 
-    // Ensure the file and meta
+    // Ensure the file and meta exist.
+    assert!(path.is_file
