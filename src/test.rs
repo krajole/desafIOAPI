@@ -101,4 +101,5 @@ fn test_cached_path_remote_file() {
     // Ensure the file and meta exist.
     assert!(path.is_file());
     assert!(Meta::meta_path(&path).is_file());
-    let mut meta = Meta::from_ca
+    let mut meta = Meta::from_cache(&path).unwrap();
+ 
