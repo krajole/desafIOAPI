@@ -102,4 +102,4 @@ fn test_cached_path_remote_file() {
     assert!(path.is_file());
     assert!(Meta::meta_path(&path).is_file());
     let mut meta = Meta::from_cache(&path).unwrap();
- 
+    assert_eq!(meta.etag.as
