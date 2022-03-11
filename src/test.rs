@@ -104,4 +104,5 @@ fn test_cached_path_remote_file() {
     let mut meta = Meta::from_cache(&path).unwrap();
     assert_eq!(meta.etag.as_deref(), Some("fake-etag"));
 
-    // Ensure the co
+    // Ensure the contents of the file are correct.
+ 
