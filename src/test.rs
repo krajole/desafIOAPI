@@ -105,4 +105,5 @@ fn test_cached_path_remote_file() {
     assert_eq!(meta.etag.as_deref(), Some("fake-etag"));
 
     // Ensure the contents of the file are correct.
-    let contents = fs::read_to_string(&path).unwrap().r
+    let contents = fs::read_to_string(&path).unwrap().replace("\r\n", "\n");
+    assert_eq!
