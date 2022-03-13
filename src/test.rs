@@ -108,4 +108,4 @@ fn test_cached_path_remote_file() {
     let contents = fs::read_to_string(&path).unwrap().replace("\r\n", "\n");
     assert_eq!(&contents, "Hello, World!\n");
 
-    // When 
+    // When we attempt to get the resource
