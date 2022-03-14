@@ -109,4 +109,4 @@ fn test_cached_path_remote_file() {
     assert_eq!(&contents, "Hello, World!\n");
 
     // When we attempt to get the resource again, the cache should still be fresh.
-    as
+    assert!(meta.is_fresh(None));
