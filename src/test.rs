@@ -110,3 +110,4 @@ fn test_cached_path_remote_file() {
 
     // When we attempt to get the resource again, the cache should still be fresh.
     assert!(meta.is_fresh(None));
+    let same_path = cache.cached
