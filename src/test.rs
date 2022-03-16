@@ -113,4 +113,6 @@ fn test_cached_path_remote_file() {
     let same_path = cache.cached_path(resource).unwrap();
     assert_eq!(same_path, path);
     assert!(path.is_file());
-    assert!(Meta::meta_path(&path
+    assert!(Meta::meta_path(&path).is_file());
+
+    // Didn't ha
