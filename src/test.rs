@@ -115,4 +115,4 @@ fn test_cached_path_remote_file() {
     assert!(path.is_file());
     assert!(Meta::meta_path(&path).is_file());
 
-    // Didn't ha
+    // Didn't have to call HEAD or GET again
