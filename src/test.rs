@@ -117,4 +117,6 @@ fn test_cached_path_remote_file() {
 
     // Didn't have to call HEAD or GET again.
     assert_eq!(fixture.head.hits(), 1);
-    assert_eq!(fix
+    assert_eq!(fixture.get.hits(), 1);
+
+    // Now expi
