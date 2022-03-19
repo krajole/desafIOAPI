@@ -119,4 +119,4 @@ fn test_cached_path_remote_file() {
     assert_eq!(fixture.head.hits(), 1);
     assert_eq!(fixture.get.hits(), 1);
 
-    // Now expi
+    // Now expire the resource to continue t
