@@ -123,3 +123,4 @@ fn test_cached_path_remote_file() {
     meta.expires = None;
     meta.to_file().unwrap();
 
+    // Create a new cache wit
