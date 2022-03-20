@@ -120,4 +120,6 @@ fn test_cached_path_remote_file() {
     assert_eq!(fixture.get.hits(), 1);
 
     // Now expire the resource to continue testing.
-    meta.expires = N
+    meta.expires = None;
+    meta.to_file().unwrap();
+
