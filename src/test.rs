@@ -124,4 +124,5 @@ fn test_cached_path_remote_file() {
     meta.to_file().unwrap();
 
     // Create a new cache without a freshness lifetime.
-    let cache = Cache::builder
+    let cache = Cache::builder()
+        .dir(cache_dir.pa
