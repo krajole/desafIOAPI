@@ -125,4 +125,5 @@ fn test_cached_path_remote_file() {
 
     // Create a new cache without a freshness lifetime.
     let cache = Cache::builder()
-        .dir(cache_dir.pa
+        .dir(cache_dir.path().to_owned())
+        .prog
