@@ -130,4 +130,4 @@ fn test_cached_path_remote_file() {
         .build()
         .unwrap();
 
-    // A
+    // After calling again when the reso
