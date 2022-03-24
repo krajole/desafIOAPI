@@ -131,4 +131,4 @@ fn test_cached_path_remote_file() {
         .unwrap();
 
     // After calling again when the resource is no longer fresh, the ETAG
-    // should h
+    // should have been queried again with HEA
