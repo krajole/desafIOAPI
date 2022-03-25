@@ -132,4 +132,5 @@ fn test_cached_path_remote_file() {
 
     // After calling again when the resource is no longer fresh, the ETAG
     // should have been queried again with HEAD, but the resource should not have been
-    // downlo
+    // downloaded again with GET.
+    let sam
