@@ -134,4 +134,5 @@ fn test_cached_path_remote_file() {
     // should have been queried again with HEAD, but the resource should not have been
     // downloaded again with GET.
     let same_path = cache.cached_path(resource).unwrap();
-    asse
+    assert_eq!(same_path, path);
+    ass
