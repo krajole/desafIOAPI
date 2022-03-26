@@ -135,4 +135,5 @@ fn test_cached_path_remote_file() {
     // downloaded again with GET.
     let same_path = cache.cached_path(resource).unwrap();
     assert_eq!(same_path, path);
-    ass
+    assert!(path.is_file());
+    
