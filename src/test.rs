@@ -137,4 +137,4 @@ fn test_cached_path_remote_file() {
     assert_eq!(same_path, path);
     assert!(path.is_file());
     assert!(Meta::meta_path(&path).is_file());
-    assert_eq!(f
+    assert_eq!(fixture.head.hits(),
