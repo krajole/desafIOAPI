@@ -142,4 +142,4 @@ fn test_cached_path_remote_file() {
 
     // Now update the resource.
     drop(fixture);
-    let 
+    let fixture = Fixture::load(&se
