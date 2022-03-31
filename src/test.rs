@@ -140,4 +140,5 @@ fn test_cached_path_remote_file() {
     assert_eq!(fixture.head.hits(), 2);
     assert_eq!(fixture.get.hits(), 1);
 
-    // Now up
+    // Now update the resource.
+    dr
