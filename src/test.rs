@@ -142,4 +142,6 @@ fn test_cached_path_remote_file() {
 
     // Now update the resource.
     drop(fixture);
-    let fixture = Fixture::load(&server, "test_fixtures/hello
+    let fixture = Fixture::load(&server, "test_fixtures/hello.txt", "fake-etag-2");
+
+ 
