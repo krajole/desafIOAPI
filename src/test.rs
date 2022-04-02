@@ -145,4 +145,6 @@ fn test_cached_path_remote_file() {
     let fixture = Fixture::load(&server, "test_fixtures/hello.txt", "fake-etag-2");
 
     // Get the new cached path.
-    let new_path = cache.cached_
+    let new_path = cache.cached_path(&fixture.url).unwrap();
+
+  
