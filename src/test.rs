@@ -147,4 +147,4 @@ fn test_cached_path_remote_file() {
     // Get the new cached path.
     let new_path = cache.cached_path(&fixture.url).unwrap();
 
-  
+    assert_eq!(fixtu
