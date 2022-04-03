@@ -148,4 +148,4 @@ fn test_cached_path_remote_file() {
     let new_path = cache.cached_path(&fixture.url).unwrap();
 
     assert_eq!(fixture.head.hits(), 1);
-    as
+    assert_eq!(fixture.get.hits
