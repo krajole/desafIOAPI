@@ -151,4 +151,6 @@ fn test_cached_path_remote_file() {
     assert_eq!(fixture.get.hits(), 1);
 
     // This should be different from the old path.
-    assert_ne!(p
+    assert_ne!(path, new_path);
+
+    // Ens
