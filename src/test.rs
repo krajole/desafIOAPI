@@ -153,4 +153,4 @@ fn test_cached_path_remote_file() {
     // This should be different from the old path.
     assert_ne!(path, new_path);
 
-    // Ens
+    // Ensure the file and meta exist.
