@@ -155,4 +155,6 @@ fn test_cached_path_remote_file() {
 
     // Ensure the file and meta exist.
     assert!(new_path.is_file());
-    assert!(Meta::meta_path(&new_
+    assert!(Meta::meta_path(&new_path).is_file());
+
+    // Ens
