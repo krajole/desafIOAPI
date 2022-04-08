@@ -158,4 +158,4 @@ fn test_cached_path_remote_file() {
     assert!(Meta::meta_path(&new_path).is_file());
 
     // Ensure the contents of the file are correct.
-    let new_contents = fs::read_to_strin
+    let new_contents = fs::read_to_string(&new_path).unwrap().replace("\r\n", "
