@@ -159,4 +159,6 @@ fn test_cached_path_remote_file() {
 
     // Ensure the contents of the file are correct.
     let new_contents = fs::read_to_string(&new_path).unwrap().replace("\r\n", "\n");
-    assert_eq!(&new_cont
+    assert_eq!(&new_contents, "Hello, World!\n");
+}
+
