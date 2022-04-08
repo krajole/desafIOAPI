@@ -162,3 +162,5 @@ fn test_cached_path_remote_file() {
     assert_eq!(&new_contents, "Hello, World!\n");
 }
 
+#[test]
+fn test_cached_path_remote_fi
