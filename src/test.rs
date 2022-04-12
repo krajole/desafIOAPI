@@ -165,4 +165,5 @@ fn test_cached_path_remote_file() {
 #[test]
 fn test_cached_path_remote_file_in_subdir() {
     // For debugging:
-    // let _ = env_logger::try_init
+    // let _ = env_logger::try_init();
+    let server = Mock
