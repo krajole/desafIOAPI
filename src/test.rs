@@ -171,3 +171,4 @@ fn test_cached_path_remote_file_in_subdir() {
     // Setup cache.
     let cache_dir = tempdir().unwrap();
     let cache = Cache::builder()
+        .dir(cache_dir.path().to_own
