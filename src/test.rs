@@ -168,4 +168,5 @@ fn test_cached_path_remote_file_in_subdir() {
     // let _ = env_logger::try_init();
     let server = MockServer::start();
 
-    // 
+    // Setup cache.
+    let cache_di
