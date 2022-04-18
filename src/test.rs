@@ -176,4 +176,5 @@ fn test_cached_path_remote_file_in_subdir() {
         .build()
         .unwrap();
 
-    // Mock the 
+    // Mock the resource.
+    let fixture = Fixtu
