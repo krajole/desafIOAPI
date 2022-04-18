@@ -172,4 +172,6 @@ fn test_cached_path_remote_file_in_subdir() {
     let cache_dir = tempdir().unwrap();
     let cache = Cache::builder()
         .dir(cache_dir.path().to_owned())
-        .progress_bar(No
+        .progress_bar(None)
+        .build()
+        .
