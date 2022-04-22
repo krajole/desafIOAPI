@@ -181,4 +181,4 @@ fn test_cached_path_remote_file_in_subdir() {
 
     // Get the cached path.
     let path = cache
-        .cached_pa
+        .cached_path_with_options(&fixture.url,
