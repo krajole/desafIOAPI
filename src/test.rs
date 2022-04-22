@@ -179,4 +179,5 @@ fn test_cached_path_remote_file_in_subdir() {
     // Mock the resource.
     let fixture = Fixture::load(&server, "test_fixtures/hello.txt", "fake-etag");
 
-    /
+    // Get the cached path.
+    let 
