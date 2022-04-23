@@ -184,4 +184,5 @@ fn test_cached_path_remote_file_in_subdir() {
         .cached_path_with_options(&fixture.url, &Options::default().subdir("target"))
         .unwrap();
 
-    assert_eq!(fixture.head.hits(
+    assert_eq!(fixture.head.hits(), 1);
+    assert_eq!(fixt
