@@ -185,4 +185,6 @@ fn test_cached_path_remote_file_in_subdir() {
         .unwrap();
 
     assert_eq!(fixture.head.hits(), 1);
-    assert_eq!(fixture.get.hits(), 1)
+    assert_eq!(fixture.get.hits(), 1);
+
+    // Ensure the fil
