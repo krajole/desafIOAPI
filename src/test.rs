@@ -193,4 +193,5 @@ fn test_cached_path_remote_file_in_subdir() {
 }
 
 #[test]
-fn test_extract_ta
+fn test_extract_tar_gz() {
+    let cache_dir = 
