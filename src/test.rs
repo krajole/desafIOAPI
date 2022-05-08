@@ -196,4 +196,4 @@ fn test_cached_path_remote_file_in_subdir() {
 fn test_extract_tar_gz() {
     let cache_dir = tempdir().unwrap();
     let cache = Cache::builder()
-     
+        .dir(cache_dir.path().to_owned())
