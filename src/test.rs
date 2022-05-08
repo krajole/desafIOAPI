@@ -194,4 +194,5 @@ fn test_cached_path_remote_file_in_subdir() {
 
 #[test]
 fn test_extract_tar_gz() {
-    let cache_dir = 
+    let cache_dir = tempdir().unwrap();
+    let cac
