@@ -199,4 +199,5 @@ fn test_extract_tar_gz() {
         .dir(cache_dir.path().to_owned())
         .progress_bar(None)
         .build()
-     
+        .unwrap();
+
