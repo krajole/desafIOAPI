@@ -205,3 +205,5 @@ fn test_extract_tar_gz() {
         ".",
         "test_fixtures",
         "utf-8_sample",
+        "archives",
+  
