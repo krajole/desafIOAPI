@@ -201,3 +201,5 @@ fn test_extract_tar_gz() {
         .build()
         .unwrap();
 
+    let resource: PathBuf = [
+    
