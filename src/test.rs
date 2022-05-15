@@ -202,4 +202,6 @@ fn test_extract_tar_gz() {
         .unwrap();
 
     let resource: PathBuf = [
-    
+        ".",
+        "test_fixtures",
+  
