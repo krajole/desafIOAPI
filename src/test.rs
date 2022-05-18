@@ -211,4 +211,5 @@ fn test_extract_tar_gz() {
     .iter()
     .collect();
 
-  
+    let path = cache
+        .cached
