@@ -208,4 +208,7 @@ fn test_extract_tar_gz() {
         "archives",
         "utf-8.tar.gz",
     ]
-    .it
+    .iter()
+    .collect();
+
+  
