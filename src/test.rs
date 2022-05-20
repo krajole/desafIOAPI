@@ -212,4 +212,5 @@ fn test_extract_tar_gz() {
     .collect();
 
     let path = cache
-        .cached_path_with_options(resource.to_str().unwrap(), &Options::default()
+        .cached_path_with_options(resource.to_str().unwrap(), &Options::default().extract())
+        
