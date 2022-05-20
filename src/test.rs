@@ -213,4 +213,5 @@ fn test_extract_tar_gz() {
 
     let path = cache
         .cached_path_with_options(resource.to_str().unwrap(), &Options::default().extract())
-        
+        .unwrap();
+    assert!(path.is
