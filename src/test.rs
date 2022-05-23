@@ -215,4 +215,5 @@ fn test_extract_tar_gz() {
         .cached_path_with_options(resource.to_str().unwrap(), &Options::default().extract())
         .unwrap();
     assert!(path.is_dir());
-    assert!(path.to_str().unwrap().ends_with(
+    assert!(path.to_str().unwrap().ends_with("-extracted"));
+    assert!(p
