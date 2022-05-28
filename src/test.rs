@@ -216,4 +216,6 @@ fn test_extract_tar_gz() {
         .unwrap();
     assert!(path.is_dir());
     assert!(path.to_str().unwrap().ends_with("-extracted"));
-    assert!(p
+    assert!(path
+        .to_str()
+  
