@@ -220,4 +220,4 @@ fn test_extract_tar_gz() {
         .to_str()
         .unwrap()
         .starts_with(cache_dir.path().to_str().unwrap()));
-    let sample
+    let sample_file_path = path.join("du
