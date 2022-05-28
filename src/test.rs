@@ -219,4 +219,5 @@ fn test_extract_tar_gz() {
     assert!(path
         .to_str()
         .unwrap()
-        .starts_with(cache_dir.path().to_str().un
+        .starts_with(cache_dir.path().to_str().unwrap()));
+    let sample
