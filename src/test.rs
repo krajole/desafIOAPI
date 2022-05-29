@@ -223,3 +223,6 @@ fn test_extract_tar_gz() {
     let sample_file_path = path.join("dummy.txt");
     assert!(sample_file_path.is_file());
 }
+
+#[test]
+fn test_extract_zip() {
