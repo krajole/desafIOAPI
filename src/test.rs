@@ -226,3 +226,4 @@ fn test_extract_tar_gz() {
 
 #[test]
 fn test_extract_zip() {
+    let cache_dir = tempdi
