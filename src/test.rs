@@ -228,4 +228,5 @@ fn test_extract_tar_gz() {
 fn test_extract_zip() {
     let cache_dir = tempdir().unwrap();
     let cache = Cache::builder()
-        .dir(ca
+        .dir(cache_dir.path().to_owned())
+       
