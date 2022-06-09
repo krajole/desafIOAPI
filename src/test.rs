@@ -231,4 +231,6 @@ fn test_extract_zip() {
         .dir(cache_dir.path().to_owned())
         .progress_bar(None)
         .build()
-        .unwra
+        .unwrap();
+
+    let resou
