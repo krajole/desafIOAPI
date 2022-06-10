@@ -233,4 +233,6 @@ fn test_extract_zip() {
         .build()
         .unwrap();
 
-    let resou
+    let resource: PathBuf = [
+        ".",
+       
