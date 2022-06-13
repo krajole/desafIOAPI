@@ -236,4 +236,5 @@ fn test_extract_zip() {
     let resource: PathBuf = [
         ".",
         "test_fixtures",
-        "u
+        "utf-8_sample",
+        "ar
