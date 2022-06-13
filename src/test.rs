@@ -237,4 +237,5 @@ fn test_extract_zip() {
         ".",
         "test_fixtures",
         "utf-8_sample",
-        "ar
+        "archives",
+        "utf-8.z
