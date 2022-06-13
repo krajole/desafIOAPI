@@ -238,4 +238,7 @@ fn test_extract_zip() {
         "test_fixtures",
         "utf-8_sample",
         "archives",
-        "utf-8.z
+        "utf-8.zip",
+    ]
+    .iter()
+   
