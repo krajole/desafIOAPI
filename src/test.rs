@@ -241,4 +241,6 @@ fn test_extract_zip() {
         "utf-8.zip",
     ]
     .iter()
-   
+    .collect();
+
+    let path = ca
