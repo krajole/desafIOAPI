@@ -243,4 +243,5 @@ fn test_extract_zip() {
     .iter()
     .collect();
 
-    let path = ca
+    let path = cache
+        .cached_path_wi
