@@ -244,4 +244,4 @@ fn test_extract_zip() {
     .collect();
 
     let path = cache
-        .cached_path_wi
+        .cached_path_with_options(resource.to_st
