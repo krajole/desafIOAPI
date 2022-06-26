@@ -247,3 +247,4 @@ fn test_extract_zip() {
         .cached_path_with_options(resource.to_str().unwrap(), &Options::default().extract())
         .unwrap();
     assert!(path.is_dir());
+    assert!(pa
