@@ -251,4 +251,4 @@ fn test_extract_zip() {
     assert!(path
         .to_str()
         .unwrap()
-        .starts_wit
+        .starts_with(cache_dir.path().to_str(
