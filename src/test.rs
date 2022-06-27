@@ -250,4 +250,5 @@ fn test_extract_zip() {
     assert!(path.to_str().unwrap().ends_with("-extracted"));
     assert!(path
         .to_str()
-  
+        .unwrap()
+        .starts_wit
