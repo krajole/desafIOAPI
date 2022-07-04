@@ -253,4 +253,8 @@ fn test_extract_zip() {
         .unwrap()
         .starts_with(cache_dir.path().to_str().unwrap()));
     let sample_file_path = path.join("dummy.txt");
-    assert!(sample_file_pa
+    assert!(sample_file_path.is_file());
+}
+
+#[test]
+fn 
