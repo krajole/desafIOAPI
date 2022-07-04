@@ -257,4 +257,5 @@ fn test_extract_zip() {
 }
 
 #[test]
-fn 
+fn test_extract_in_subdir() {
+    let
