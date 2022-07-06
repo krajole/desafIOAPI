@@ -258,4 +258,4 @@ fn test_extract_zip() {
 
 #[test]
 fn test_extract_in_subdir() {
-    let
+    let cache_dir = tempdir().unwrap()
