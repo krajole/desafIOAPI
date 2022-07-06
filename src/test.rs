@@ -258,4 +258,5 @@ fn test_extract_zip() {
 
 #[test]
 fn test_extract_in_subdir() {
-    let cache_dir = tempdir().unwrap()
+    let cache_dir = tempdir().unwrap();
+    let cache = Cache::bui
