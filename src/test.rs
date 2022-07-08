@@ -260,4 +260,5 @@ fn test_extract_zip() {
 fn test_extract_in_subdir() {
     let cache_dir = tempdir().unwrap();
     let cache = Cache::builder()
-        .dir(cache_dir.path().to_own
+        .dir(cache_dir.path().to_owned())
+        .progress_bar(N
