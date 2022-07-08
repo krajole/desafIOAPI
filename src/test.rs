@@ -263,4 +263,6 @@ fn test_extract_in_subdir() {
         .dir(cache_dir.path().to_owned())
         .progress_bar(None)
         .build()
-        .
+        .unwrap();
+
+    let resource: PathBuf = 
