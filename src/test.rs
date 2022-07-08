@@ -265,4 +265,6 @@ fn test_extract_in_subdir() {
         .build()
         .unwrap();
 
-    let resource: PathBuf = 
+    let resource: PathBuf = [
+        ".",
+        "test_f
