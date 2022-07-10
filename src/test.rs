@@ -267,4 +267,5 @@ fn test_extract_in_subdir() {
 
     let resource: PathBuf = [
         ".",
-        "test_f
+        "test_fixtures",
+        "utf-8_samp
