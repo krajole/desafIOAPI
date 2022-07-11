@@ -269,4 +269,6 @@ fn test_extract_in_subdir() {
         ".",
         "test_fixtures",
         "utf-8_sample",
-        "archi
+        "archives",
+        "utf-8.tar.gz",
+  
