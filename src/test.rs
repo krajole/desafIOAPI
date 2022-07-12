@@ -271,4 +271,6 @@ fn test_extract_in_subdir() {
         "utf-8_sample",
         "archives",
         "utf-8.tar.gz",
-  
+    ]
+    .iter()
+    .coll
