@@ -273,4 +273,6 @@ fn test_extract_in_subdir() {
         "utf-8.tar.gz",
     ]
     .iter()
-    .coll
+    .collect();
+
+    let path = cach
