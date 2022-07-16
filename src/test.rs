@@ -276,4 +276,5 @@ fn test_extract_in_subdir() {
     .collect();
 
     let path = cache
-        .cached_path
+        .cached_path_with_options(
+        
