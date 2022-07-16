@@ -275,4 +275,5 @@ fn test_extract_in_subdir() {
     .iter()
     .collect();
 
-    let path = cach
+    let path = cache
+        .cached_path
