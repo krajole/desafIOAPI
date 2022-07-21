@@ -278,4 +278,6 @@ fn test_extract_in_subdir() {
     let path = cache
         .cached_path_with_options(
             resource.to_str().unwrap(),
-            &Options::default().subdir("targ
+            &Options::default().subdir("target").extract(),
+        )
+  
