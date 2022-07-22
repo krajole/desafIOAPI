@@ -280,4 +280,5 @@ fn test_extract_in_subdir() {
             resource.to_str().unwrap(),
             &Options::default().subdir("target").extract(),
         )
-  
+        .unwrap();
+    as
