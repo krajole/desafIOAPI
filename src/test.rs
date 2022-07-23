@@ -281,4 +281,5 @@ fn test_extract_in_subdir() {
             &Options::default().subdir("target").extract(),
         )
         .unwrap();
-    as
+    assert!(path.is_dir());
+    ass
