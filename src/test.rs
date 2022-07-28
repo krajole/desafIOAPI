@@ -282,4 +282,5 @@ fn test_extract_in_subdir() {
         )
         .unwrap();
     assert!(path.is_dir());
-    assert!(path.to_str().unwrap().ends_with("-extracte
+    assert!(path.to_str().unwrap().ends_with("-extracted"));
+    assert!(path.p
