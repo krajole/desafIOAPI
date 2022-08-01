@@ -286,4 +286,5 @@ fn test_extract_in_subdir() {
     assert!(path.parent().unwrap().to_str().unwrap().ends_with("target"));
     assert!(path
         .to_str()
-    
+        .unwrap()
+        .starts_with(cach
