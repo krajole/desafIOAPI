@@ -287,4 +287,4 @@ fn test_extract_in_subdir() {
     assert!(path
         .to_str()
         .unwrap()
-        .starts_with(cach
+        .starts_with(cache_dir.path().to_str().un
