@@ -288,4 +288,4 @@ fn test_extract_in_subdir() {
         .to_str()
         .unwrap()
         .starts_with(cache_dir.path().to_str().unwrap()));
-    let sample_file
+    let sample_file_path = path.join("dummy.txt"
