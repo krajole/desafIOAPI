@@ -6,4 +6,4 @@ pub(crate) fn hash_str(s: &str) -> String {
 }
 
 pub(crate) fn now() -> f64 {
-    // Safe to unwrap unless t
+    // Safe to unwrap unless the system time is seriously s
