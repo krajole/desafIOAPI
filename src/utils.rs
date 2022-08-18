@@ -5,4 +5,5 @@ pub(crate) fn hash_str(s: &str) -> String {
     format!("{:x}", Sha256::digest(s.as_bytes()))
 }
 
-pub(crate) fn now() -> f
+pub(crate) fn now() -> f64 {
+    // Safe to unwrap unless t
